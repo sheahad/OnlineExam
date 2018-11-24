@@ -9,8 +9,8 @@ Code varchar(50),
 ConatactNo varchar(150),
 About nvarchar(MAX),
 Logo varchar(MAX)
+)
 
-
-
+CReATE TABLE courseTable(
 
 )
