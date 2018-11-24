@@ -88,3 +88,16 @@ CONSTRAINT [FK_participantOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES o
 CONSTRAINT [FK_participantCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
 CONSTRAINT [FK_participantbatch] FOREIGN KEY(BatchId) REFERENCES batchTable (Id)
 )
+
+CREATE TABLE examTable(
+Id int IDENTITY (1,1) PRIMARY KEY,
+OrganiaationId int,
+CourseId int,
+ExamType varchar(50),
+Code varchar(50),
+Topic varchar(max),
+FullMark int,
+Duration time,				-- datatype ???????????
+CONSTRAINT [FK_examOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_examCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
+)
