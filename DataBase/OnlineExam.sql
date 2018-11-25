@@ -20,7 +20,7 @@ Name varchar(100),
 Code varchar(50),
 CourseDuration float,
 Credit int,
-Outline text,		-- datatype ???????????	
+Outline varchar(MAX),		-- datatype ???????????	
 CONSTRAINT [FK_CourseOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id)
 )
 
@@ -28,7 +28,7 @@ CONSTRAINT [FK_CourseOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organi
 CREATE TABLE tagTable
 (
 Id int IDENTITY (1,1) PRIMARY KEY,
-Name text
+Name varchar(200)
 )
 
 CREATE TABLE courseTagTable(
@@ -43,7 +43,7 @@ Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 CourseId int,
 BatchNo int,
-[Description] text,
+[Description] varchar(MAX),
 StartDate date,
 EndDate date,
 CONSTRAINT [FK_batchOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
