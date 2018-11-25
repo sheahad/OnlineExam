@@ -6,9 +6,11 @@ CREATE TABLE organiaationTable(
 Id int IDENTITY (1,1) PRIMARY KEY,
 Name varchar(100),
 Code varchar(50),
+[Address] varchar(MAX),
 ConatactNo varchar(150),
 About nvarchar(MAX),
 Logo varchar(MAX)
+ 
 )
 
 CREATE TABLE courseTable(
