@@ -1,6 +1,55 @@
 CREATE DATABASE OnlineExamDb
 
 USE OnlineExamDb
+-----------------------------------------------------------------------------------------------
+---User
+CREATE TABLE userTypeTable
+(
+Id int IDENTITY (1,1) PRIMARY KEY,
+Name varchar(200)
+)
+
+CREATE TABLE dbo.userLoginTable(
+	Id int IDENTITY(1,1) PRIMARY KEY,
+	Name varchar(50),
+	UserLoginName varchar(50),
+	UserTypeId int,
+	[Password] varchar(8),
+	ConfirmPassword varchar(8),
+	ContactNo varchar(11),
+	Email varchar(50),
+	CreateDate smalldatetime,
+	CreateById int,
+	LastLogIn smalldatetime,
+	[Status] varchar(1),
+	CONSTRAINT [FK_UserUserType] FOREIGN KEY(UserTypeId) REFERENCES userTypeTable (Id),
+	CONSTRAINT [FK_UserUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
+)
+-----------------------------------------------------------------------------------------------
+--Country City
+CREATE TABLE countryTable
+(
+Id int IDENTITY (1,1) PRIMARY KEY,
+Name varchar(200),
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_CountryUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
+)
+
+CREATE TABLE cityTable
+(
+Id int IDENTITY (1,1) PRIMARY KEY,
+Name varchar(200),
+[Status] varchar(1),
+CountryId int,
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_CityCountry] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_CityUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
+)
+
+-----------------------------------------------------------------------------------------------
 
 CREATE TABLE organiaationTable(
 Id int IDENTITY (1,1) PRIMARY KEY,
@@ -9,8 +58,11 @@ Code varchar(50),
 [Address] varchar(MAX),
 ConatactNo varchar(150),
 About nvarchar(MAX),
-Logo varchar(MAX)
- 
+Logo varchar(MAX),
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_OrganiaationUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
 )
 
 CREATE TABLE courseTable(
@@ -21,21 +73,32 @@ Code varchar(50),
 CourseDuration float,
 Credit int,
 Outline varchar(MAX),		-- datatype ???????????	
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_CourseUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
 CONSTRAINT [FK_CourseOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id)
 )
-
 
 CREATE TABLE tagTable
 (
 Id int IDENTITY (1,1) PRIMARY KEY,
-Name varchar(200)
+Name varchar(200),
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_TagUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
 )
 
 CREATE TABLE courseTagTable(
 TagId int,
-CourseId int
-CONSTRAINT [FK_courseTagTag] FOREIGN KEY(TagId) REFERENCES tagTable (Id),
-CONSTRAINT [FK_courseTagCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
+CourseId int,
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_CourseTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_CourseTagTag] FOREIGN KEY(TagId) REFERENCES tagTable (Id),
+CONSTRAINT [FK_CourseTagCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
 )
 
 CREATE TABLE batchTable(
@@ -46,9 +109,16 @@ BatchNo int,
 [Description] varchar(MAX),
 StartDate date,
 EndDate date,
-CONSTRAINT [FK_batchOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
-CONSTRAINT [FK_batchCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_BatchTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+
+CONSTRAINT [FK_BatchOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_BatchCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
 )
+
+-----------------------------------------------------------------------------------------------
 
 CREATE TABLE trainerTable(
 Id int IDENTITY (1,1) PRIMARY KEY,
@@ -60,14 +130,22 @@ ConatactNo varchar(150),
 Email varchar(150),
 AddressLine1 varchar(max),
 AddressLine2 varchar(max),
-City  varchar(50),			-- cityTable
+CityId  int,			-- cityTable
 PostalCode varchar(50),	-- postalCodeTable
-Country varchar(50),		-- countryTable
+CountryId int,		-- countryTable
 [Image] varchar(max),		-- datatype ???????????	
-CONSTRAINT [FK_trainerOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
-CONSTRAINT [FK_trainerCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
-CONSTRAINT [FK_trainerbatch] FOREIGN KEY(BatchId) REFERENCES batchTable (Id)
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_TrainerTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_TrainerOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_TrainerCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
+CONSTRAINT [FK_TrainerBatch] FOREIGN KEY(BatchId) REFERENCES batchTable (Id),
+CONSTRAINT [FK_TrainerCountry] FOREIGN KEY(CountryId) REFERENCES countryTable (Id),
+CONSTRAINT [FK_TrainerCity] FOREIGN KEY(CityId) REFERENCES cityTable (Id)
 )
+
+-----------------------------------------------------------------------------------------------
 
 CREATE TABLE participantTable(
 Id int IDENTITY (1,1) PRIMARY KEY,
@@ -80,16 +158,24 @@ ConatactNo varchar(150),
 Email varchar(150),
 AddressLine1 varchar(max),
 AddressLine2 varchar(max),
-City  varchar(50),			-- cityTable
-PostalCode varchar(50),		-- postalCodeTable
-Country varchar(50),		-- countryTable
+CityId  int,			-- cityTable
+PostalCode varchar(50),	-- postalCodeTable
+CountryId int,		-- countryTable
 Profession varchar(100),
 HighestAcademic varchar(100),
 [Image] varchar(max),		-- datatype ???????????	
-CONSTRAINT [FK_participantOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
-CONSTRAINT [FK_participantCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
-CONSTRAINT [FK_participantbatch] FOREIGN KEY(BatchId) REFERENCES batchTable (Id)
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_ParticipantTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_ParticipantOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_ParticipantCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
+CONSTRAINT [FK_ParticipantBatch] FOREIGN KEY(BatchId) REFERENCES batchTable (Id),
+CONSTRAINT [FK_ParticipantCountry] FOREIGN KEY(CountryId) REFERENCES countryTable (Id),
+CONSTRAINT [FK_ParticipantCity] FOREIGN KEY(CityId) REFERENCES cityTable (Id)
 )
+
+-----------------------------------------------------------------------------------------------
 
 CREATE TABLE examTable(
 Id int IDENTITY (1,1) PRIMARY KEY,
@@ -100,6 +186,10 @@ Code varchar(50),
 Topic varchar(max),
 FullMark int,
 Duration time,				-- datatype ???????????
-CONSTRAINT [FK_examOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
-CONSTRAINT [FK_examCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
+[Status] varchar(1),
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
 )
