@@ -3,17 +3,18 @@ CREATE DATABASE OnlineExamDb
 USE OnlineExamDb
 -----------------------------------------------------------------------------------------------
 ---User
-CREATE TABLE userTypeTable
-(
-Id int IDENTITY (1,1) PRIMARY KEY,
-Name varchar(200)
-)
+--CREATE TABLE userTypeTable
+--(
+--Id int IDENTITY (1,1) PRIMARY KEY,
+--Name varchar(200)
+--)
 
 CREATE TABLE dbo.userLoginTable(
 	Id int IDENTITY(1,1) PRIMARY KEY,
 	Name varchar(50),
 	UserLoginName varchar(50),
-	UserTypeId int,
+	--UserTypeId int,
+	UserType varchar(25),
 	[Password] varchar(8),
 	ConfirmPassword varchar(8),
 	ContactNo varchar(11),
@@ -21,8 +22,8 @@ CREATE TABLE dbo.userLoginTable(
 	CreateDate smalldatetime,
 	CreateById int,
 	LastLogIn smalldatetime,
-	[Status] varchar(1),
-	CONSTRAINT [FK_UserUserType] FOREIGN KEY(UserTypeId) REFERENCES userTypeTable (Id),
+	[Status] varchar(1) default 'A',
+	--CONSTRAINT [FK_UserUserType] FOREIGN KEY(UserTypeId) REFERENCES userTypeTable (Id),
 	CONSTRAINT [FK_UserUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
 )
 -----------------------------------------------------------------------------------------------
@@ -31,7 +32,7 @@ CREATE TABLE countryTable
 (
 Id int IDENTITY (1,1) PRIMARY KEY,
 Name varchar(200),
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_CountryUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
@@ -41,7 +42,7 @@ CREATE TABLE cityTable
 (
 Id int IDENTITY (1,1) PRIMARY KEY,
 Name varchar(200),
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CountryId int,
 CreateById int,
 CreateDate smalldatetime,
@@ -59,7 +60,7 @@ Code varchar(50),
 ConatactNo varchar(150),
 About nvarchar(MAX),
 Logo varchar(MAX),
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_OrganiaationUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
@@ -73,7 +74,7 @@ Code varchar(50),
 CourseDuration float,
 Credit int,
 Outline varchar(MAX),		-- datatype ???????????	
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_CourseUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
@@ -84,7 +85,7 @@ CREATE TABLE tagTable
 (
 Id int IDENTITY (1,1) PRIMARY KEY,
 Name varchar(200),
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_TagUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id)
@@ -93,7 +94,7 @@ CONSTRAINT [FK_TagUserLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (
 CREATE TABLE courseTagTable(
 TagId int,
 CourseId int,
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_CourseTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
@@ -109,11 +110,10 @@ BatchNo int,
 [Description] varchar(MAX),
 StartDate date,
 EndDate date,
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_BatchTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
-
 CONSTRAINT [FK_BatchOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
 CONSTRAINT [FK_BatchCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
 )
@@ -134,7 +134,7 @@ CityId  int,			-- cityTable
 PostalCode varchar(50),	-- postalCodeTable
 CountryId int,		-- countryTable
 [Image] varchar(max),		-- datatype ???????????	
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_TrainerTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
@@ -164,7 +164,7 @@ CountryId int,		-- countryTable
 Profession varchar(100),
 HighestAcademic varchar(100),
 [Image] varchar(max),		-- datatype ???????????	
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_ParticipantTagLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
@@ -186,10 +186,46 @@ Code varchar(50),
 Topic varchar(max),
 FullMark int,
 Duration time,				-- datatype ???????????
-[Status] varchar(1),
+[Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
 CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
 CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id)
+)
+
+CREATE TABLE questionTable(
+Id int IDENTITY (1,1) PRIMARY KEY,
+OrganiaationId int,
+CourseId int,
+ExamId int,
+QuestionMark float,
+[Order] int,
+Duration time,				-- datatype ???????????
+Question varchar(max),
+
+[Status] varchar(1) default 'A',
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
+CONSTRAINT [FK_ExamCourse] FOREIGN KEY(ExamId) REFERENCES examTable (Id)
+)
+
+CREATE TABLE answerTable(
+Id int IDENTITY (1,1) PRIMARY KEY,
+QuestionId int,
+CourseId int,
+OptionType varchar(50),
+[Option] varchar(50), 
+Correct varchar(50),
+
+[Status] varchar(1) default 'A',
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
+CONSTRAINT [FK_ExamCourse] FOREIGN KEY(ExamId) REFERENCES examTable (Id)
 )
