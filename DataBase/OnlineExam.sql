@@ -199,33 +199,28 @@ Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 CourseId int,
 ExamId int,
-QuestionMark float,
+Mark float,
 [Order] int,
-Duration time,				-- datatype ???????????
 Question varchar(max),
-
+QuestionType varchar(1),
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
-CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
-CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
-CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
-CONSTRAINT [FK_ExamCourse] FOREIGN KEY(ExamId) REFERENCES examTable (Id)
+CONSTRAINT [FK_QuestionLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
+CONSTRAINT [FK_QuestionOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
+CONSTRAINT [FK_QuestionCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
+CONSTRAINT [FK_QuestionExam] FOREIGN KEY(ExamId) REFERENCES examTable (Id)
 )
 
 CREATE TABLE answerTable(
 Id int IDENTITY (1,1) PRIMARY KEY,
 QuestionId int,
-CourseId int,
-OptionType varchar(50),
-[Option] varchar(50), 
-Correct varchar(50),
-
+[Order] int,
+Answer varchar(max),
+Result bit default 1,
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
-CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES userLoginTable (Id),
-CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES organiaationTable (Id),
-CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES courseTable (Id),
-CONSTRAINT [FK_ExamCourse] FOREIGN KEY(ExamId) REFERENCES examTable (Id)
+CONSTRAINT [FK_AnswerQuestion] FOREIGN KEY(QuestionId) REFERENCES questionTable (Id)
 )
+
