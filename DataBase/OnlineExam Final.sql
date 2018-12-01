@@ -270,49 +270,49 @@ CONSTRAINT [FK_ScheduleExamExam] FOREIGN KEY(ExamId) REFERENCES Exams (Id)
 -----------------------------------------------------------------------------------------------
 --AttendExam
 
-CREATE TABLE Exams(
+CREATE TABLE AttendExams(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 CourseId int,
-ExamType varchar(50),
-Code varchar(50),
-Topic varchar(max),
-FullMark int,
-Duration time,				-- datatype ???????????
-[Status] varchar(1) default 'A',
-CreateById int,
-CreateDate smalldatetime,
-CONSTRAINT [FK_ExamLogin] FOREIGN KEY(CreateById) REFERENCES Users (Id),
-CONSTRAINT [FK_ExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
-CONSTRAINT [FK_ExamCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id)
-)
-
-CREATE TABLE Questions(
-Id int IDENTITY (1,1) PRIMARY KEY,
-OrganiaationId int,
-CourseId int,
+ParticipantId int,
 ExamId int,
-Mark float,
-[Order] int,
-Question varchar(max),
-QuestionType varchar(1),
+AttendExamDate date,
+StartTime time,
+EndTime time,
+TotalMarks float,
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
-CONSTRAINT [FK_QuestionLogin] FOREIGN KEY(CreateById) REFERENCES Users (Id),
-CONSTRAINT [FK_QuestionOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
-CONSTRAINT [FK_QuestionCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
-CONSTRAINT [FK_QuestionExam] FOREIGN KEY(ExamId) REFERENCES Exams (Id)
+CONSTRAINT [FK_AttendExamLogin] FOREIGN KEY(CreateById) REFERENCES Users (Id),
+CONSTRAINT [FK_AttendExamOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
+CONSTRAINT [FK_AttendExamCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
+CONSTRAINT [FK_AttendExamExam] FOREIGN KEY(ExamId) REFERENCES Exams (Id),
+CONSTRAINT [FK_AttendExamParticipant] FOREIGN KEY(ParticipantId) REFERENCES Participants (Id)
 )
 
-CREATE TABLE Answers(
+CREATE TABLE AttendQuestions(
 Id int IDENTITY (1,1) PRIMARY KEY,
+AttendExamId int,
 QuestionId int,
-[Order] int,
-Answer varchar(max),
-Result int,
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
-CONSTRAINT [FK_AnswerQuestion] FOREIGN KEY(QuestionId) REFERENCES Questions (Id)
+CONSTRAINT [FK_AttendQuestionLogin] FOREIGN KEY(CreateById) REFERENCES Users (Id),
+CONSTRAINT [FK_AttendQuestionAttendExam] FOREIGN KEY(AttendExamId) REFERENCES AttendExams (Id),
+CONSTRAINT [FK_AttendQuestionQuestion] FOREIGN KEY(QuestionId) REFERENCES Questions (Id)
+)
+
+CREATE TABLE AttendAnswers(
+Id int IDENTITY (1,1) PRIMARY KEY,
+AttendQuestionId int,
+--QuestionId int,
+AnswerId int,
+AttendAnswer int,
+[Status] varchar(1) default 'A',
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_AttendAnswerAttendQuestion] FOREIGN KEY(AttendQuestionId) REFERENCES AttendQuestions (Id),
+--CONSTRAINT [FK_AnswerQuestion] FOREIGN KEY(QuestionId) REFERENCES Questions (Id)
+CONSTRAINT [FK_AttendAnswerAnswers] FOREIGN KEY(AnswerId) REFERENCES Answers (Id),
+
 )
