@@ -143,7 +143,7 @@ CreateDate smalldatetime,
 CONSTRAINT [FK_TrainerUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
 CONSTRAINT [FK_TrainerOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
 --CONSTRAINT [FK_TrainerCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
-CONSTRAINT [FK_TrainerBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
+--CONSTRAINT [FK_TrainerBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
 CONSTRAINT [FK_TrainerCountry] FOREIGN KEY(CountryId) REFERENCES Countries (Id),
 CONSTRAINT [FK_TrainerCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
 )
