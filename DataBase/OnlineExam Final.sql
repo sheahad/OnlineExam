@@ -122,7 +122,7 @@ CONSTRAINT [FK_BatchCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id)
 
 -----------------------------------------------------------------------------------------------
 
-CREATE DROP TABLE Trainers(
+CREATE TABLE Trainers(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 --CourseId int,
@@ -205,17 +205,17 @@ CONSTRAINT [FK_ParticipantCountry] FOREIGN KEY(CountryId) REFERENCES Countries (
 CONSTRAINT [FK_ParticipantCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
 )
 
---AssignParticipants
-CREATE TABLE AssignParticipants(
+--AssignBatchParticipants
+CREATE TABLE AssignBatchParticipants(
 Id int IDENTITY (1,1) PRIMARY KEY,
 BatchId int,
 ParticipantId int,
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
-CONSTRAINT [FK_AssignParticipantUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
-CONSTRAINT [FK_AssignParticipantBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
-CONSTRAINT [FK_AssignParticipantParticipant] FOREIGN KEY(ParticipantId) REFERENCES Participants (Id)
+CONSTRAINT [FK_AssignBatchParticipantUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
+CONSTRAINT [FK_AssignBatchParticipantBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
+CONSTRAINT [FK_AssignBatchParticipantParticipant] FOREIGN KEY(ParticipantId) REFERENCES Participants (Id)
 )
 
 -----------------------------------------------------------------------------------------------
