@@ -126,7 +126,7 @@ CREATE TABLE Trainers(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 --CourseId int,
-BatchId int,
+--BatchId int,
 Name varchar(50),
 --Lead int,
 ConatactNo varchar(150),
@@ -180,7 +180,7 @@ CONSTRAINT [FK_AssignBatchTrainerTrainer] FOREIGN KEY(TrainerId) REFERENCES Trai
 CREATE TABLE Participants(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
-CourseId int,
+--CourseId int,
 --BatchId int,
 Name varchar(50),
 RegNo varchar(10),
@@ -199,7 +199,7 @@ CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_ParticipantUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
 CONSTRAINT [FK_ParticipantOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
-CONSTRAINT [FK_ParticipantCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
+--CONSTRAINT [FK_ParticipantCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
 --CONSTRAINT [FK_ParticipantBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
 CONSTRAINT [FK_ParticipantCountry] FOREIGN KEY(CountryId) REFERENCES Countries (Id),
 CONSTRAINT [FK_ParticipantCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
@@ -216,6 +216,19 @@ CreateDate smalldatetime,
 CONSTRAINT [FK_AssignBatchParticipantUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
 CONSTRAINT [FK_AssignBatchParticipantBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
 CONSTRAINT [FK_AssignBatchParticipantParticipant] FOREIGN KEY(ParticipantId) REFERENCES Participants (Id)
+)
+
+--AssignCourseParticipants
+CREATE TABLE AssignCourseParticipants(
+Id int IDENTITY (1,1) PRIMARY KEY,
+CourseId int,
+ParticipantId int,
+[Status] varchar(1) default 'A',
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_AssignCourseParticipantUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
+CONSTRAINT [FK_AssignCourseParticipantBatch] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
+CONSTRAINT [FK_AssignCourseParticipantParticipant] FOREIGN KEY(ParticipantId) REFERENCES Participants (Id)
 )
 
 -----------------------------------------------------------------------------------------------
