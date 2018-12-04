@@ -124,10 +124,10 @@ CONSTRAINT [FK_BatchCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id)
 CREATE TABLE Trainers(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
-CourseId int,
+--CourseId int,
 BatchId int,
 Name varchar(50),
-Lead int,
+--Lead int,
 ConatactNo varchar(150),
 Email varchar(150),
 AddressLine1 varchar(max),
