@@ -73,6 +73,7 @@ Name varchar(100),
 Code varchar(50),
 CourseDuration float,
 Credit int,
+Fee float,
 Outline varchar(MAX),		-- datatype ???????????	
 [Status] varchar(1) default 'A',
 CreateById int,
@@ -121,7 +122,7 @@ CONSTRAINT [FK_BatchCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id)
 
 -----------------------------------------------------------------------------------------------
 
-CREATE TABLE Trainers(
+CREATE DROP TABLE Trainers(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 --CourseId int,
@@ -141,13 +142,13 @@ CreateById int,
 CreateDate smalldatetime,
 CONSTRAINT [FK_TrainerUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
 CONSTRAINT [FK_TrainerOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
-CONSTRAINT [FK_TrainerCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
+--CONSTRAINT [FK_TrainerCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
 CONSTRAINT [FK_TrainerBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
 CONSTRAINT [FK_TrainerCountry] FOREIGN KEY(CountryId) REFERENCES Countries (Id),
 CONSTRAINT [FK_TrainerCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
 )
---AssignTrainers
-CREATE TABLE AssignTrainers(
+--AssignCourseTrainers
+CREATE TABLE AssignCourseTrainers(
 Id int IDENTITY (1,1) PRIMARY KEY,
 CourseId int,
 TrainerId int,
@@ -155,9 +156,23 @@ Lead int,
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
-CONSTRAINT [FK_AssignTrainerUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
-CONSTRAINT [FK_AssignTrainerCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
-CONSTRAINT [FK_AssignTrainerTrainer] FOREIGN KEY(TrainerId) REFERENCES Trainers (Id)
+CONSTRAINT [FK_AssignCourseTrainerUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
+CONSTRAINT [FK_AssignCourseTrainerCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
+CONSTRAINT [FK_AssignCourseTrainerTrainer] FOREIGN KEY(TrainerId) REFERENCES Trainers (Id)
+)
+
+--AssignBatcheTrainers
+CREATE TABLE AssignBatchTrainers(
+Id int IDENTITY (1,1) PRIMARY KEY,
+BatchId int,
+TrainerId int,
+--Lead int,
+[Status] varchar(1) default 'A',
+CreateById int,
+CreateDate smalldatetime,
+CONSTRAINT [FK_AssignBatchTrainerUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
+CONSTRAINT [FK_AssignBatchTrainerBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
+CONSTRAINT [FK_AssignBatchTrainerTrainer] FOREIGN KEY(TrainerId) REFERENCES Trainers (Id)
 )
 
 -----------------------------------------------------------------------------------------------
@@ -166,7 +181,7 @@ CREATE TABLE Participants(
 Id int IDENTITY (1,1) PRIMARY KEY,
 OrganiaationId int,
 CourseId int,
-BatchId int,
+--BatchId int,
 Name varchar(50),
 RegNo varchar(10),
 ConatactNo varchar(150),
@@ -185,7 +200,7 @@ CreateDate smalldatetime,
 CONSTRAINT [FK_ParticipantUser] FOREIGN KEY(CreateById) REFERENCES Users (Id),
 CONSTRAINT [FK_ParticipantOrganiaation] FOREIGN KEY(OrganiaationId) REFERENCES Organizations (Id),
 CONSTRAINT [FK_ParticipantCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id),
-CONSTRAINT [FK_ParticipantBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
+--CONSTRAINT [FK_ParticipantBatch] FOREIGN KEY(BatchId) REFERENCES Batchs (Id),
 CONSTRAINT [FK_ParticipantCountry] FOREIGN KEY(CountryId) REFERENCES Countries (Id),
 CONSTRAINT [FK_ParticipantCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
 )
@@ -195,7 +210,6 @@ CREATE TABLE AssignParticipants(
 Id int IDENTITY (1,1) PRIMARY KEY,
 BatchId int,
 ParticipantId int,
-Lead int,
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
