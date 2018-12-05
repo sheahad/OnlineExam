@@ -96,6 +96,7 @@ CONSTRAINT [FK_TagUser] FOREIGN KEY(CreateById) REFERENCES Users (Id)
 CREATE TABLE CourseTags(
 TagId int,
 CourseId int,
+PRIMARY KEY(TagId,CourseId),
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
@@ -149,9 +150,10 @@ CONSTRAINT [FK_TrainerCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
 )
 --AssignCourseTrainers
 CREATE TABLE AssignCourseTrainers(
-Id int IDENTITY (1,1) PRIMARY KEY,
+--Id int IDENTITY (1,1) PRIMARY KEY,
 CourseId int,
 TrainerId int,
+PRIMARY KEY (CourseId,TrainerId),
 Lead int,
 [Status] varchar(1) default 'A',
 CreateById int,
@@ -163,9 +165,10 @@ CONSTRAINT [FK_AssignCourseTrainerTrainer] FOREIGN KEY(TrainerId) REFERENCES Tra
 
 --AssignBatcheTrainers
 CREATE TABLE AssignBatchTrainers(
-Id int IDENTITY (1,1) PRIMARY KEY,
+--Id int IDENTITY (1,1) PRIMARY KEY,
 BatchId int,
 TrainerId int,
+PRIMARY KEY (BatchId, TrainerId),
 --Lead int,
 [Status] varchar(1) default 'A',
 CreateById int,
@@ -207,9 +210,10 @@ CONSTRAINT [FK_ParticipantCity] FOREIGN KEY(CityId) REFERENCES Cities (Id)
 
 --AssignBatchParticipants
 CREATE TABLE AssignBatchParticipants(
-Id int IDENTITY (1,1) PRIMARY KEY,
+--Id int IDENTITY (1,1) PRIMARY KEY,
 BatchId int,
 ParticipantId int,
+PRIMARY KEY (BatchId,ParticipantId),
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
@@ -220,9 +224,10 @@ CONSTRAINT [FK_AssignBatchParticipantParticipant] FOREIGN KEY(ParticipantId) REF
 
 --AssignCourseParticipants
 CREATE TABLE AssignCourseParticipants(
-Id int IDENTITY (1,1) PRIMARY KEY,
+--Id int IDENTITY (1,1) PRIMARY KEY,
 CourseId int,
 ParticipantId int,
+PRIMARY KEY (CourseId,ParticipantId),
 [Status] varchar(1) default 'A',
 CreateById int,
 CreateDate smalldatetime,
