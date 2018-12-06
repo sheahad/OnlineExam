@@ -94,6 +94,7 @@ CONSTRAINT [FK_TagUser] FOREIGN KEY(CreateById) REFERENCES Users (Id)
 )
 
 CREATE TABLE CourseTags(
+Id int IDENTITY (1,1) PRIMARY KEY,
 TagId int,
 CourseId int,
 PRIMARY KEY(TagId,CourseId),
