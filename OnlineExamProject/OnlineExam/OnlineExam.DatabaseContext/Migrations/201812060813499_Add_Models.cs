@@ -196,7 +196,7 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganizationId = c.Int(),
+                        OrganizationId = c.Int(nullable: false),
                         CourseId = c.Int(nullable: false),
                         BatchNo = c.Int(nullable: false),
                         Description = c.String(),
@@ -210,7 +210,7 @@ namespace OnlineExam.DatabaseContext.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
-                .ForeignKey("dbo.Organizations", t => t.OrganizationId)
+                .ForeignKey("dbo.Organizations", t => t.OrganizationId, cascadeDelete: false)
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
                 .Index(t => t.OrganizationId)
                 .Index(t => t.User_Id)

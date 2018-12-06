@@ -13,7 +13,7 @@ namespace OnlineExam.DatabaseContext.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812060759333_Add_Models"; }
+            get { return "201812060813499_Add_Models"; }
         }
         
         string IMigrationMetadata.Source

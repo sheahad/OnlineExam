@@ -16,8 +16,8 @@ namespace OnlineExam.Models.Models
         [Key, Column(Order = 1)]
         public int CourseId { get; set; }
         public string Status { get; set; }
-        public Nullable<int> CreateById { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
+        public int CreateById { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public virtual Cours Cours { get; set; }
         public virtual User User { get; set; }

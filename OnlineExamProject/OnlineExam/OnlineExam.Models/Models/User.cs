@@ -8,28 +8,7 @@ namespace OnlineExam.Models.Models
 {
     public class User
     {
-        public User()
-        {
-            this.AssignBatchParticipants = new HashSet<AssignBatchParticipant>();
-            this.AssignBatchTrainers = new HashSet<AssignBatchTrainer>();
-            this.AssignCourseParticipants = new HashSet<AssignCourseParticipant>();
-            this.AssignCourseTrainers = new HashSet<AssignCourseTrainer>();
-            this.AttendExams = new HashSet<AttendExam>();
-            this.AttendQuestions = new HashSet<AttendQuestion>();
-            this.Batchs = new HashSet<Batch>();
-            this.Cities = new HashSet<City>();
-            this.Countries = new HashSet<Country>();
-            this.Courses = new HashSet<Cours>();
-            this.CourseTags = new HashSet<CourseTag>();
-            this.Exams = new HashSet<Exam>();
-            this.Organizations = new HashSet<Organization>();
-            this.Participants = new HashSet<Participant>();
-            this.Questions = new HashSet<Question>();
-            this.ScheduleExams = new HashSet<ScheduleExam>();
-            this.Tags = new HashSet<Tag>();
-            this.Trainers = new HashSet<Trainer>();
-            this.Users1 = new HashSet<User>();
-        }
+
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -39,9 +18,9 @@ namespace OnlineExam.Models.Models
         public string ConfirmPassword { get; set; }
         public string ContactNo { get; set; }
         public string Email { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public Nullable<int> CreateById { get; set; }
-        public Nullable<System.DateTime> LastLogIn { get; set; }
+        public DateTime CreateDate { get; set; }
+        public int CreateById { get; set; }
+        public DateTime LastLogIn { get; set; }
         public string Status { get; set; }
 
         public virtual ICollection<AssignBatchParticipant> AssignBatchParticipants { get; set; }

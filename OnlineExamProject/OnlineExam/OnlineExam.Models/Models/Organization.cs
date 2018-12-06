@@ -8,16 +8,7 @@ namespace OnlineExam.Models.Models
 {
     public class Organization
     {
-        public Organization()
-        {
-            this.AttendExams = new HashSet<AttendExam>();
-            this.Batchs = new HashSet<Batch>();
-            this.Courses = new HashSet<Cours>();
-            this.Exams = new HashSet<Exam>();
-            this.Participants = new HashSet<Participant>();
-            this.Questions = new HashSet<Question>();
-            this.Trainers = new HashSet<Trainer>();
-        }
+       
 
         public int Id { get; set; }
         public string Name { get; set; }
@@ -27,8 +18,8 @@ namespace OnlineExam.Models.Models
         public string About { get; set; }
         public string Logo { get; set; }
         public string Status { get; set; }
-        public Nullable<int> CreateById { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
+        public int CreateById { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public virtual ICollection<AttendExam> AttendExams { get; set; }
         public virtual ICollection<Batch> Batchs { get; set; }

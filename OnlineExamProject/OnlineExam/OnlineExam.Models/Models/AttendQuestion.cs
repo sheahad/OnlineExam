@@ -8,17 +8,13 @@ namespace OnlineExam.Models.Models
 {
     public class AttendQuestion
     {
-        public AttendQuestion()
-        {
-            this.AttendAnswers = new HashSet<AttendAnswer>();
-        }
-
+ 
         public int Id { get; set; }
-        public Nullable<int> AttendExamId { get; set; }
-        public Nullable<int> QuestionId { get; set; }
+        public int AttendExamId { get; set; }
+        public int QuestionId { get; set; }
         public string Status { get; set; }
-        public Nullable<int> CreateById { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
+        public int CreateById { get; set; }
+        public DateTime CreateDate { get; set; }
 
         public virtual ICollection<AttendAnswer> AttendAnswers { get; set; }
         public virtual AttendExam AttendExam { get; set; }
