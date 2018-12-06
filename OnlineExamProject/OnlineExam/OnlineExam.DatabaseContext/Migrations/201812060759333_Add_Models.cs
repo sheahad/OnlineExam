@@ -3,7 +3,7 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CTREATE_DATABASE : DbMigration
+    public partial class Add_Models : DbMigration
     {
         public override void Up()
         {
@@ -12,16 +12,16 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        QuestionId = c.Int(),
-                        Order = c.Int(),
+                        QuestionId = c.Int(nullable: false),
+                        Order = c.Int(nullable: false),
                         Answer1 = c.String(),
-                        Result = c.Int(),
+                        Result = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Questions", t => t.QuestionId)
+                .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: false)
                 .Index(t => t.QuestionId);
             
             CreateTable(
@@ -29,16 +29,16 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        AttendQuestionId = c.Int(),
-                        AnswerId = c.Int(),
-                        AttendAnswer1 = c.Int(),
+                        AttendQuestionId = c.Int(nullable: false),
+                        AnswerId = c.Int(nullable: false),
+                        AttendAnswer1 = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Answers", t => t.AnswerId)
-                .ForeignKey("dbo.AttendQuestions", t => t.AttendQuestionId)
+                .ForeignKey("dbo.Answers", t => t.AnswerId, cascadeDelete: false)
+                .ForeignKey("dbo.AttendQuestions", t => t.AttendQuestionId, cascadeDelete: false)
                 .Index(t => t.AttendQuestionId)
                 .Index(t => t.AnswerId);
             
@@ -47,17 +47,17 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        AttendExamId = c.Int(),
-                        QuestionId = c.Int(),
+                        AttendExamId = c.Int(nullable: false),
+                        QuestionId = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AttendExams", t => t.AttendExamId)
+                .ForeignKey("dbo.AttendExams", t => t.AttendExamId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
-                .ForeignKey("dbo.Questions", t => t.QuestionId)
+                .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: false)
                 .Index(t => t.AttendExamId)
                 .Index(t => t.QuestionId)
                 .Index(t => t.User_Id);
@@ -67,26 +67,26 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
-                        CourseId = c.Int(),
-                        ParticipantId = c.Int(),
-                        ExamId = c.Int(),
-                        AttendExamDate = c.DateTime(),
+                        OrganiaationId = c.Int(nullable: false),
+                        CourseId = c.Int(nullable: false),
+                        ParticipantId = c.Int(nullable: false),
+                        ExamId = c.Int(nullable: false),
+                        AttendExamDate = c.DateTime(nullable: false),
                         StartTime = c.Time(precision: 7),
                         EndTime = c.Time(precision: 7),
                         TotalMarks = c.Double(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                         Organization_Id = c.Int(),
                         Cours_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
-                .ForeignKey("dbo.Exams", t => t.ExamId)
+                .ForeignKey("dbo.Exams", t => t.ExamId, cascadeDelete: false)
                 .ForeignKey("dbo.Organizations", t => t.Organization_Id)
-                .ForeignKey("dbo.Participants", t => t.ParticipantId)
+                .ForeignKey("dbo.Participants", t => t.ParticipantId, cascadeDelete: false)
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
                 .Index(t => t.ParticipantId)
                 .Index(t => t.ExamId)
@@ -99,16 +99,16 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
+                        OrganiaationId = c.Int(nullable: false),
                         Name = c.String(),
                         Code = c.String(),
                         CourseDuration = c.Double(),
-                        Credit = c.Int(),
+                        Credit = c.Int(nullable: false),
                         Fee = c.Double(),
                         Outline = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                         Organization_Id = c.Int(),
                     })
@@ -125,15 +125,15 @@ namespace OnlineExam.DatabaseContext.Migrations
                         CourseId = c.Int(nullable: false),
                         ParticipantId = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Cours_Id = c.Int(),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => new { t.CourseId, t.ParticipantId })
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
-                .ForeignKey("dbo.Participants", t => t.ParticipantId, cascadeDelete: true)
+                .ForeignKey("dbo.Participants", t => t.ParticipantId, cascadeDelete: false)
                 .Index(t => t.ParticipantId)
                 .Index(t => t.Cours_Id)
                 .Index(t => t.User_Id);
@@ -143,28 +143,28 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
+                        OrganiaationId = c.Int(nullable: false),
                         Name = c.String(),
                         RegNo = c.String(),
                         ConatactNo = c.String(),
                         Email = c.String(),
                         AddressLine1 = c.String(),
                         AddressLine2 = c.String(),
-                        CityId = c.Int(),
+                        CityId = c.Int(nullable: false),
                         PostalCode = c.String(),
-                        CountryId = c.Int(),
+                        CountryId = c.Int(nullable: false),
                         Profession = c.String(),
                         HighestAcademic = c.String(),
                         Image = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Organization_Id = c.Int(),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Countries", t => t.CountryId)
-                .ForeignKey("dbo.Cities", t => t.CityId)
+                .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: false)
+                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: false)
                 .ForeignKey("dbo.Organizations", t => t.Organization_Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.CityId)
@@ -179,14 +179,14 @@ namespace OnlineExam.DatabaseContext.Migrations
                         BatchId = c.Int(nullable: false),
                         ParticipantId = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => new { t.BatchId, t.ParticipantId })
-                .ForeignKey("dbo.Batches", t => t.BatchId, cascadeDelete: true)
+                .ForeignKey("dbo.Batches", t => t.BatchId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
-                .ForeignKey("dbo.Participants", t => t.ParticipantId, cascadeDelete: true)
+                .ForeignKey("dbo.Participants", t => t.ParticipantId, cascadeDelete: false)
                 .Index(t => t.BatchId)
                 .Index(t => t.ParticipantId)
                 .Index(t => t.User_Id);
@@ -196,25 +196,24 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
-                        CourseId = c.Int(),
-                        BatchNo = c.Int(),
+                        OrganizationId = c.Int(),
+                        CourseId = c.Int(nullable: false),
+                        BatchNo = c.Int(nullable: false),
                         Description = c.String(),
-                        StartDate = c.DateTime(),
-                        EndDate = c.DateTime(),
+                        StartDate = c.DateTime(nullable: false),
+                        EndDate = c.DateTime(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
-                        Organization_Id = c.Int(),
                         Cours_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
-                .ForeignKey("dbo.Organizations", t => t.Organization_Id)
+                .ForeignKey("dbo.Organizations", t => t.OrganizationId)
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
+                .Index(t => t.OrganizationId)
                 .Index(t => t.User_Id)
-                .Index(t => t.Organization_Id)
                 .Index(t => t.Cours_Id);
             
             CreateTable(
@@ -224,13 +223,13 @@ namespace OnlineExam.DatabaseContext.Migrations
                         BatchId = c.Int(nullable: false),
                         TrainerId = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => new { t.BatchId, t.TrainerId })
-                .ForeignKey("dbo.Batches", t => t.BatchId, cascadeDelete: true)
-                .ForeignKey("dbo.Trainers", t => t.TrainerId, cascadeDelete: true)
+                .ForeignKey("dbo.Batches", t => t.BatchId, cascadeDelete: false)
+                .ForeignKey("dbo.Trainers", t => t.TrainerId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.BatchId)
                 .Index(t => t.TrainerId)
@@ -241,25 +240,25 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
+                        OrganiaationId = c.Int(nullable: false),
                         Name = c.String(),
                         ConatactNo = c.String(),
                         Email = c.String(),
                         AddressLine1 = c.String(),
                         AddressLine2 = c.String(),
-                        CityId = c.Int(),
+                        CityId = c.Int(nullable: false),
                         PostalCode = c.String(),
-                        CountryId = c.Int(),
+                        CountryId = c.Int(nullable: false),
                         Image = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Organization_Id = c.Int(),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Countries", t => t.CountryId)
-                .ForeignKey("dbo.Cities", t => t.CityId)
+                .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: false)
+                .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: false)
                 .ForeignKey("dbo.Organizations", t => t.Organization_Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.CityId)
@@ -273,16 +272,16 @@ namespace OnlineExam.DatabaseContext.Migrations
                     {
                         CourseId = c.Int(nullable: false),
                         TrainerId = c.Int(nullable: false),
-                        Lead = c.Int(),
+                        Lead = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Cours_Id = c.Int(),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => new { t.CourseId, t.TrainerId })
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
-                .ForeignKey("dbo.Trainers", t => t.TrainerId, cascadeDelete: true)
+                .ForeignKey("dbo.Trainers", t => t.TrainerId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.TrainerId)
                 .Index(t => t.Cours_Id)
@@ -300,9 +299,9 @@ namespace OnlineExam.DatabaseContext.Migrations
                         ConfirmPassword = c.String(),
                         ContactNo = c.String(),
                         Email = c.String(),
-                        CreateDate = c.DateTime(),
-                        CreateById = c.Int(),
-                        LastLogIn = c.DateTime(),
+                        CreateDate = c.DateTime(nullable: false),
+                        CreateById = c.Int(nullable: false),
+                        LastLogIn = c.DateTime(nullable: false),
                         Status = c.String(),
                         User1_Id = c.Int(),
                     })
@@ -317,13 +316,13 @@ namespace OnlineExam.DatabaseContext.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Status = c.String(),
-                        CountryId = c.Int(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CountryId = c.Int(nullable: false),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Countries", t => t.CountryId)
+                .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.CountryId)
                 .Index(t => t.User_Id);
@@ -335,8 +334,8 @@ namespace OnlineExam.DatabaseContext.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -350,14 +349,14 @@ namespace OnlineExam.DatabaseContext.Migrations
                         TagId = c.Int(nullable: false),
                         CourseId = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Cours_Id = c.Int(),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => new { t.TagId, t.CourseId })
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
-                .ForeignKey("dbo.Tags", t => t.TagId, cascadeDelete: true)
+                .ForeignKey("dbo.Tags", t => t.TagId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.TagId)
                 .Index(t => t.Cours_Id)
@@ -370,8 +369,8 @@ namespace OnlineExam.DatabaseContext.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Name = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -383,16 +382,16 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
-                        CourseId = c.Int(),
+                        OrganiaationId = c.Int(nullable: false),
+                        CourseId = c.Int(nullable: false),
                         ExamType = c.String(),
                         Code = c.String(),
                         Topic = c.String(),
-                        FullMark = c.Int(),
+                        FullMark = c.Int(nullable: false),
                         Duration = c.Time(precision: 7),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Cours_Id = c.Int(),
                         Organization_Id = c.Int(),
                         User_Id = c.Int(),
@@ -417,8 +416,8 @@ namespace OnlineExam.DatabaseContext.Migrations
                         About = c.String(),
                         Logo = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -430,23 +429,23 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(),
-                        CourseId = c.Int(),
-                        ExamId = c.Int(),
+                        OrganiaationId = c.Int(nullable: false),
+                        CourseId = c.Int(nullable: false),
+                        ExamId = c.Int(nullable: false),
                         Mark = c.Double(),
-                        Order = c.Int(),
+                        Order = c.Int(nullable: false),
                         Question1 = c.String(),
                         QuestionType = c.String(),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         Cours_Id = c.Int(),
                         Organization_Id = c.Int(),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Cours", t => t.Cours_Id)
-                .ForeignKey("dbo.Exams", t => t.ExamId)
+                .ForeignKey("dbo.Exams", t => t.ExamId, cascadeDelete: false)
                 .ForeignKey("dbo.Organizations", t => t.Organization_Id)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.ExamId)
@@ -459,18 +458,18 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        BatchId = c.Int(),
-                        ExamId = c.Int(),
-                        ExamDate = c.DateTime(),
+                        BatchId = c.Int(nullable: false),
+                        ExamId = c.Int(nullable: false),
+                        ExamDate = c.DateTime(nullable: false),
                         ExamTime = c.Time(precision: 7),
                         Status = c.String(),
-                        CreateById = c.Int(),
-                        CreateDate = c.DateTime(),
+                        CreateById = c.Int(nullable: false),
+                        CreateDate = c.DateTime(nullable: false),
                         User_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Batches", t => t.BatchId)
-                .ForeignKey("dbo.Exams", t => t.ExamId)
+                .ForeignKey("dbo.Batches", t => t.BatchId, cascadeDelete: false)
+                .ForeignKey("dbo.Exams", t => t.ExamId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.User_Id)
                 .Index(t => t.BatchId)
                 .Index(t => t.ExamId)
@@ -503,7 +502,7 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropForeignKey("dbo.Participants", "Organization_Id", "dbo.Organizations");
             DropForeignKey("dbo.Exams", "Organization_Id", "dbo.Organizations");
             DropForeignKey("dbo.Cours", "Organization_Id", "dbo.Organizations");
-            DropForeignKey("dbo.Batches", "Organization_Id", "dbo.Organizations");
+            DropForeignKey("dbo.Batches", "OrganizationId", "dbo.Organizations");
             DropForeignKey("dbo.AttendExams", "Organization_Id", "dbo.Organizations");
             DropForeignKey("dbo.Exams", "Cours_Id", "dbo.Cours");
             DropForeignKey("dbo.AttendExams", "ExamId", "dbo.Exams");
@@ -565,8 +564,8 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropIndex("dbo.AssignBatchTrainers", new[] { "TrainerId" });
             DropIndex("dbo.AssignBatchTrainers", new[] { "BatchId" });
             DropIndex("dbo.Batches", new[] { "Cours_Id" });
-            DropIndex("dbo.Batches", new[] { "Organization_Id" });
             DropIndex("dbo.Batches", new[] { "User_Id" });
+            DropIndex("dbo.Batches", new[] { "OrganizationId" });
             DropIndex("dbo.AssignBatchParticipants", new[] { "User_Id" });
             DropIndex("dbo.AssignBatchParticipants", new[] { "ParticipantId" });
             DropIndex("dbo.AssignBatchParticipants", new[] { "BatchId" });

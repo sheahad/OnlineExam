@@ -108,7 +108,7 @@ CONSTRAINT [FK_CourseTagCourse] FOREIGN KEY(CourseId) REFERENCES Courses (Id)
 
 CREATE TABLE Batchs(
 Id int IDENTITY (1,1) PRIMARY KEY,
-OrganiaationId int,
+OrganizationId int,
 CourseId int,
 BatchNo int,
 [Description] varchar(MAX),
@@ -183,7 +183,7 @@ CONSTRAINT [FK_AssignBatchTrainerTrainer] FOREIGN KEY(TrainerId) REFERENCES Trai
 
 CREATE TABLE Participants(
 Id int IDENTITY (1,1) PRIMARY KEY,
-OrganiaationId int,
+OrganizationId int,
 --CourseId int,
 --BatchId int,
 Name varchar(50),

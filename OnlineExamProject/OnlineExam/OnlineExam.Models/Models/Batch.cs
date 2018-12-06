@@ -16,7 +16,7 @@ namespace OnlineExam.Models.Models
         }
 
         public int Id { get; set; }
-        public Nullable<int> OrganiaationId { get; set; }
+        public Nullable<int> OrganizationId { get; set; }
         public Nullable<int> CourseId { get; set; }
         public Nullable<int> BatchNo { get; set; }
         public string Description { get; set; }

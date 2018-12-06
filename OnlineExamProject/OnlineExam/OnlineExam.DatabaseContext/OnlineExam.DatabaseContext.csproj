@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812060636288_CTREATE_DATABASE.cs" />
-    <Compile Include="Migrations\201812060636288_CTREATE_DATABASE.Designer.cs">
-      <DependentUpon>201812060636288_CTREATE_DATABASE.cs</DependentUpon>
+    <Compile Include="Migrations\201812060759333_Add_Models.cs" />
+    <Compile Include="Migrations\201812060759333_Add_Models.Designer.cs">
+      <DependentUpon>201812060759333_Add_Models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812060636288_CTREATE_DATABASE.resx">
-      <DependentUpon>201812060636288_CTREATE_DATABASE.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812060759333_Add_Models.resx">
+      <DependentUpon>201812060759333_Add_Models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,13 +7,13 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class CTREATE_DATABASE : IMigrationMetadata
+    public sealed partial class Add_Models : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CTREATE_DATABASE));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Add_Models));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812060636288_CTREATE_DATABASE"; }
+            get { return "201812060759333_Add_Models"; }
         }
         
         string IMigrationMetadata.Source
