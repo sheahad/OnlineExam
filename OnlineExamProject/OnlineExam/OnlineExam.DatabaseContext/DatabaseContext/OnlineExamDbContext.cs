@@ -8,7 +8,7 @@ using OnlineExam.Models.Models;
 
 namespace OnlineExam.DatabaseContext.DatabaseContext
 {
-    class OnlineExamDbContext : DbContext
+    public class OnlineExamDbContext : DbContext
     {
         public OnlineExamDbContext()
         {

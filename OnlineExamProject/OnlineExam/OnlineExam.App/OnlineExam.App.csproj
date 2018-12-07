@@ -177,10 +177,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BatchController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
+    <Compile Include="Controllers\ParticipantsController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\TrainerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BatchCreateViewModel.cs" />
+    <Compile Include="Models\CourseCreateViewModel.cs" />
+    <Compile Include="Models\ExamCreateViewModel.cs" />
+    <Compile Include="Models\OrganizationCreateViewModel.cs" />
+    <Compile Include="Models\ParticipantCreateViewModel.cs" />
+    <Compile Include="Models\QuestionCreateViewModel.cs" />
+    <Compile Include="Models\TrainerCreateViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +212,34 @@
     <Content Include="theme\assets\images\icon\market-value\Thumbs.db" />
     <Content Include="theme\assets\images\icon\Thumbs.db" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Organization\Save.cshtml" />
+    <Content Include="Views\Organization\Edit.cshtml" />
+    <Content Include="Views\Organization\Search.cshtml" />
+    <Content Include="Views\Organization\View.cshtml" />
+    <Content Include="Views\Course\Edit.cshtml" />
+    <Content Include="Views\Course\Save.cshtml" />
+    <Content Include="Views\Course\Search.cshtml" />
+    <Content Include="Views\Course\View.cshtml" />
+    <Content Include="Views\Batch\Edit.cshtml" />
+    <Content Include="Views\Batch\Save.cshtml" />
+    <Content Include="Views\Batch\Search.cshtml" />
+    <Content Include="Views\Batch\View.cshtml" />
+    <Content Include="Views\Trainer\Edit.cshtml" />
+    <Content Include="Views\Trainer\Save.cshtml" />
+    <Content Include="Views\Trainer\Search.cshtml" />
+    <Content Include="Views\Trainer\View.cshtml" />
+    <Content Include="Views\Participants\Edit.cshtml" />
+    <Content Include="Views\Participants\Save.cshtml" />
+    <Content Include="Views\Participants\Search.cshtml" />
+    <Content Include="Views\Participants\View.cshtml" />
+    <Content Include="Views\Exam\Edit.cshtml" />
+    <Content Include="Views\Exam\Save.cshtml" />
+    <Content Include="Views\Exam\Search.cshtml" />
+    <Content Include="Views\Exam\View.cshtml" />
+    <Content Include="Views\Question\Edit.cshtml" />
+    <Content Include="Views\Question\Save.cshtml" />
+    <Content Include="Views\Question\Search.cshtml" />
+    <Content Include="Views\Question\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -207,7 +249,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineExam.BLL\OnlineExam.BLL.csproj">

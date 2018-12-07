@@ -11,6 +11,7 @@ namespace OnlineExam.Models.Models
 
 
         public int Id { get; set; }
+        //
         public int OrganizationId { get; set; }
         public int CourseId { get; set; }
         public int BatchNo { get; set; }
@@ -24,6 +25,7 @@ namespace OnlineExam.Models.Models
         public virtual ICollection<AssignBatchParticipant> AssignBatchParticipants { get; set; }
         public virtual ICollection<AssignBatchTrainer> AssignBatchTrainers { get; set; }
         public virtual Cours Cours { get; set; }
+        //
         public virtual Organization Organization { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<ScheduleExam> ScheduleExams { get; set; }
