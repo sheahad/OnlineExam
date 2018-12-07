@@ -40,6 +40,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\AnswerManager.cs" />
+    <Compile Include="BLL\AssignBatchParticipantManager.cs" />
+    <Compile Include="BLL\AssignBatchTrainerManager.cs" />
+    <Compile Include="BLL\AssignCourseParticipantManager.cs" />
+    <Compile Include="BLL\AssignCourseTrainerManager.cs" />
+    <Compile Include="BLL\AttendAnswerManager.cs" />
+    <Compile Include="BLL\AttendExamManager.cs" />
+    <Compile Include="BLL\BatchManager.cs" />
+    <Compile Include="BLL\CityManager.cs" />
+    <Compile Include="BLL\CountryManager.cs" />
+    <Compile Include="BLL\CourseTagManager.cs" />
+    <Compile Include="BLL\CoursManager.cs" />
+    <Compile Include="BLL\ExamManager.cs" />
+    <Compile Include="BLL\OrganizationManager.cs" />
+    <Compile Include="BLL\ParticipantManager.cs" />
+    <Compile Include="BLL\QuestionManager.cs" />
+    <Compile Include="BLL\ScheduleExamManager.cs" />
+    <Compile Include="BLL\TagManager.cs" />
+    <Compile Include="BLL\TrainerManager.cs" />
+    <Compile Include="BLL\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
