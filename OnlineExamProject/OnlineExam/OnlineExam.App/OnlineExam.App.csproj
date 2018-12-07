@@ -105,11 +105,79 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="theme\assets\css\bootstrap.min.css" />
+    <Content Include="theme\assets\css\default-css.css" />
+    <Content Include="theme\assets\css\font-awesome.min.css" />
+    <Content Include="theme\assets\css\metisMenu.css" />
+    <Content Include="theme\assets\css\owl.carousel.min.css" />
+    <Content Include="theme\assets\css\responsive.css" />
+    <Content Include="theme\assets\css\slicknav.min.css" />
+    <Content Include="theme\assets\css\styles.css" />
+    <Content Include="theme\assets\css\themify-icons.css" />
+    <Content Include="theme\assets\css\typography.css" />
+    <Content Include="theme\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="theme\assets\fonts\themify.svg" />
+    <Content Include="theme\assets\images\author\author-img1.jpg" />
+    <Content Include="theme\assets\images\author\author-img2.jpg" />
+    <Content Include="theme\assets\images\author\author-img3.jpg" />
+    <Content Include="theme\assets\images\author\author-img4.jpg" />
+    <Content Include="theme\assets\images\author\avatar.png" />
+    <Content Include="theme\assets\images\bg\singin-bg.jpg" />
+    <Content Include="theme\assets\images\blog\post-thumb1.jpg" />
+    <Content Include="theme\assets\images\blog\post-thumb2.jpg" />
+    <Content Include="theme\assets\images\card\card-img1.jpg" />
+    <Content Include="theme\assets\images\card\card-img10.jpg" />
+    <Content Include="theme\assets\images\card\card-img2.jpg" />
+    <Content Include="theme\assets\images\card\card-img3.jpg" />
+    <Content Include="theme\assets\images\card\card-img4.jpg" />
+    <Content Include="theme\assets\images\card\card-img5.jpg" />
+    <Content Include="theme\assets\images\card\card-img6.jpg" />
+    <Content Include="theme\assets\images\card\card-img7.jpg" />
+    <Content Include="theme\assets\images\card\card-img8.jpg" />
+    <Content Include="theme\assets\images\card\card-img9.jpg" />
+    <Content Include="theme\assets\images\icon\loader.gif" />
+    <Content Include="theme\assets\images\icon\logo.png" />
+    <Content Include="theme\assets\images\icon\logo2.png" />
+    <Content Include="theme\assets\images\icon\market-value\icon1.png" />
+    <Content Include="theme\assets\images\icon\market-value\icon2.png" />
+    <Content Include="theme\assets\images\icon\market-value\icon3.png" />
+    <Content Include="theme\assets\images\icon\market-value\icon4.png" />
+    <Content Include="theme\assets\images\icon\market-value\trends-down-icon.png" />
+    <Content Include="theme\assets\images\icon\market-value\trends-up-icon.png" />
+    <Content Include="theme\assets\images\icon\market-value\triangle-down.png" />
+    <Content Include="theme\assets\images\icon\market-value\triangle-up.png" />
+    <Content Include="theme\assets\images\media\media1.jpg" />
+    <Content Include="theme\assets\images\media\media2.jpg" />
+    <Content Include="theme\assets\images\team\team-author1.jpg" />
+    <Content Include="theme\assets\images\team\team-author2.jpg" />
+    <Content Include="theme\assets\images\team\team-author3.jpg" />
+    <Content Include="theme\assets\images\team\team-author4.jpg" />
+    <Content Include="theme\assets\images\team\team-author5.jpg" />
+    <Content Include="theme\assets\js\bar-chart.js" />
+    <Content Include="theme\assets\js\bootstrap.min.js" />
+    <Content Include="theme\assets\js\jquery.slicknav.min.js" />
+    <Content Include="theme\assets\js\jquery.slimscroll.min.js" />
+    <Content Include="theme\assets\js\line-chart.js" />
+    <Content Include="theme\assets\js\maps.js" />
+    <Content Include="theme\assets\js\metisMenu.min.js" />
+    <Content Include="theme\assets\js\owl.carousel.min.js" />
+    <Content Include="theme\assets\js\pie-chart.js" />
+    <Content Include="theme\assets\js\plugins.js" />
+    <Content Include="theme\assets\js\popper.min.js" />
+    <Content Include="theme\assets\js\scripts.js" />
+    <Content Include="theme\assets\js\vendor\jquery-2.2.4.min.js" />
+    <Content Include="theme\assets\js\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -118,6 +186,18 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="theme\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="theme\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="theme\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="theme\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="theme\assets\fonts\FontAwesome.otf" />
+    <Content Include="theme\assets\fonts\themify.eot" />
+    <Content Include="theme\assets\fonts\themify.ttf" />
+    <Content Include="theme\assets\fonts\themify.woff" />
+    <Content Include="theme\assets\images\icon\market-value\Thumbs.db" />
+    <Content Include="theme\assets\images\icon\Thumbs.db" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,7 +207,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
