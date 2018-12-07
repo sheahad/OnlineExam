@@ -19,7 +19,7 @@ namespace OnlineExam.App.Controllers
         
         public ActionResult Save()
         {
-            ViewBag.UserName = HttpContext.User.Identity.Name;
+            ViewBag.UserName = User.Identity.Name;
             
             return View();
         }
