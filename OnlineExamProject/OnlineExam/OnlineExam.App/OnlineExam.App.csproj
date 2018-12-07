@@ -181,9 +181,11 @@
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\TrainerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +196,7 @@
     <Compile Include="Models\OrganizationCreateViewModel.cs" />
     <Compile Include="Models\ParticipantCreateViewModel.cs" />
     <Compile Include="Models\QuestionCreateViewModel.cs" />
+    <Compile Include="Models\ResultCreateViewModel.cs" />
     <Compile Include="Models\TrainerCreateViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,8 +229,8 @@
     <Content Include="Views\Batch\View.cshtml" />
     <Content Include="Views\Trainer\Edit.cshtml" />
     <Content Include="Views\Trainer\Save.cshtml" />
-    <Content Include="Views\Trainer\Search.cshtml" />
-    <Content Include="Views\Trainer\View.cshtml" />
+    <Content Include="Views\Result\Search.cshtml" />
+    <Content Include="Views\Result\View.cshtml" />
     <Content Include="Views\Participants\Edit.cshtml" />
     <Content Include="Views\Participants\Save.cshtml" />
     <Content Include="Views\Participants\Search.cshtml" />
@@ -240,6 +243,8 @@
     <Content Include="Views\Question\Save.cshtml" />
     <Content Include="Views\Question\Search.cshtml" />
     <Content Include="Views\Question\View.cshtml" />
+    <Content Include="Views\LogIn\LogIn.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogIn.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
