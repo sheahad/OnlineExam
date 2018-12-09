@@ -19,9 +19,8 @@ namespace OnlineExam.App.Controllers
         public string message = "";
         //
         // GET: /Organization/
-  
-
-        [HttpGet]
+       
+            [HttpGet]
         public ActionResult Save()
         {
             //ViewBag.UserName = User.Identity.Name;
@@ -48,10 +47,11 @@ namespace OnlineExam.App.Controllers
                     }
                     else
                     {
-                        message = "Saved Faild!";
+                        message = "Saved Failed!";
                         ViewBag.EMsg = message;
                     }
                     return View(model);
+
                 }
                 message = Utility.GetModelStateError(ModelState);
             }
