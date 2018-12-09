@@ -41,8 +41,7 @@ namespace OnlineExam.Models.Models
         public virtual ICollection<ScheduleExam> ScheduleExams { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<Trainer> Trainers { get; set; }
-        public virtual ICollection<User> Users1 { get; set; }
-        public virtual User User1 { get; set; }
+       
     }
 
 }
