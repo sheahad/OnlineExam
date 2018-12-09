@@ -46,6 +46,25 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AnswerRepositories.cs" />
+    <Compile Include="Repositories\AssignBatchParticipantRepositories.cs" />
+    <Compile Include="Repositories\AssignBatchTrainerRepositories.cs" />
+    <Compile Include="Repositories\AssignCourseParticipantRepositories.cs" />
+    <Compile Include="Repositories\AssignCourseTrainerRepositories.cs" />
+    <Compile Include="Repositories\AttendAnswerRepositories.cs" />
+    <Compile Include="Repositories\AttendExamRepositories.cs" />
+    <Compile Include="Repositories\BatchRepositories.cs" />
+    <Compile Include="Repositories\CityRepositories.cs" />
+    <Compile Include="Repositories\CountryRepositories.cs" />
+    <Compile Include="Repositories\CourseTagRepositories.cs" />
+    <Compile Include="Repositories\CoursRepositories.cs" />
+    <Compile Include="Repositories\ExamRepositories.cs" />
+    <Compile Include="Repositories\OrganizationRepositories.cs" />
+    <Compile Include="Repositories\ParticipantRepositories.cs" />
+    <Compile Include="Repositories\QuestionRepositories.cs" />
+    <Compile Include="Repositories\ScheduleExamRepositories.cs" />
+    <Compile Include="Repositories\TagRepositories.cs" />
+    <Compile Include="Repositories\TrainerRepositories.cs" />
+    <Compile Include="Repositories\UserRepositories.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineExam.DatabaseContext\OnlineExam.DatabaseContext.csproj">
