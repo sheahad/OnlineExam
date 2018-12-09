@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,13 +18,14 @@ namespace OnlineExam.Models.Models
         public string Code { get; set; }
         public string Topic { get; set; }
         public int FullMark { get; set; }
-        public Nullable<System.TimeSpan> Duration { get; set; }
+        public TimeSpan Duration { get; set; }
         public string Status { get; set; }
+        [ForeignKey("User")]
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 
         public virtual ICollection<AttendExam> AttendExams { get; set; }
-        public virtual Cours Cours { get; set; }
+        public virtual Course Course { get; set; }
         public virtual User User { get; set; }
         public virtual Organization Organization { get; set; }
         public virtual ICollection<Question> Questions { get; set; }

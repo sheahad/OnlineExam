@@ -55,7 +55,7 @@
     <Compile Include="Models\Batch.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\Cours.cs" />
+    <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseTag.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Organization.cs" />

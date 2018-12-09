@@ -13,35 +13,35 @@ namespace OnlineExam.Repositories.Repositories
     {
 
         OnlineExamDbContext db = new OnlineExamDbContext();
-        public bool Add(Cours entity)
+        public bool Add(Course entity)
         {
             db.Courses.Add(entity);
             return db.SaveChanges() > 0;
         }
 
-        public bool Update(Cours entity)
+        public bool Update(Course entity)
         {
             db.Entry(entity).State = EntityState.Modified;
             return db.SaveChanges() > 0;
         }
 
-        public bool Remove(Cours entity)
+        public bool Remove(Course entity)
         {
             db.Courses.Remove(entity);
             return db.SaveChanges() > 0;
         }
-        public List<Cours> GetAll()
+        public List<Course> GetAll()
         {
             return db.Courses.ToList();
             //EgarLoading Include Employee 
             //return db.Departments.Include(c=>c.Employees).ToList();
         }
-        public Cours GetById(int id)
+        public Course GetById(int id)
         {
             return db.Courses.FirstOrDefault(c => c.Id == id);
         }
 
-        public void LoadEmloyees(Cours entity)
+        public void LoadEmloyees(Course entity)
         {
             //Explicit loading
             //db.Entry(entity).Collection(c => c.AttendCourss).Load();

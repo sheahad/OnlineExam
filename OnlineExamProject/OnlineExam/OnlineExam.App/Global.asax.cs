@@ -24,8 +24,8 @@ namespace OnlineExam.App
                 cfg.CreateMap<Batch, BatchCreateViewModel>();
 
                 //
-                cfg.CreateMap<CourseCreateViewModel, Cours>();
-                cfg.CreateMap<Cours, CourseCreateViewModel>();
+                cfg.CreateMap<CourseCreateViewModel, Course>();
+                cfg.CreateMap<Course, CourseCreateViewModel>();
                 //
                 cfg.CreateMap<ExamCreateViewModel, Exam>();
                 cfg.CreateMap<Exam, ExamCreateViewModel>();

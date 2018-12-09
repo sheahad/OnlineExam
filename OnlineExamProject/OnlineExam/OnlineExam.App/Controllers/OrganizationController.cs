@@ -55,7 +55,7 @@ namespace OnlineExam.App.Controllers
                 }
                 message = Utility.GetModelStateError(ModelState);
             }
-            catch (Exception exception)
+            catch (Exception )
             {
                 message = "Saved Faild!";
                 ViewBag.EMsg = message;

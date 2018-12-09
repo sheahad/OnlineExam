@@ -15,11 +15,13 @@ namespace OnlineExam.Models.Models
         [Key, Column(Order = 1)]
         public int ParticipantId { get; set; }
         public string Status { get; set; }
+        [ForeignKey("User")]
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 
         public virtual Batch Batch { get; set; }
         public virtual Participant Participant { get; set; }
+        
         public virtual User User { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace OnlineExam.Models.Models
   
 
         public int Id { get; set; }
-        public int OrganiaationId { get; set; }
+        public int OrganizationId { get; set; }
         public string Name { get; set; }
         public string ConatactNo { get; set; }
         public string Email { get; set; }
@@ -24,6 +25,7 @@ namespace OnlineExam.Models.Models
         public int CountryId { get; set; }
         public string Image { get; set; }
         public string Status { get; set; }
+        [ForeignKey("User")]
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 
