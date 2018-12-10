@@ -47,13 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812090828116_DB_Modifed.cs" />
-    <Compile Include="Migrations\201812090828116_DB_Modifed.Designer.cs">
-      <DependentUpon>201812090828116_DB_Modifed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812090840411_Batch_Modifed.cs" />
-    <Compile Include="Migrations\201812090840411_Batch_Modifed.Designer.cs">
-      <DependentUpon>201812090840411_Batch_Modifed.cs</DependentUpon>
+    <Compile Include="Migrations\201812091412026_db_modified.cs" />
+    <Compile Include="Migrations\201812091412026_db_modified.Designer.cs">
+      <DependentUpon>201812091412026_db_modified.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,11 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812090828116_DB_Modifed.resx">
-      <DependentUpon>201812090828116_DB_Modifed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812090840411_Batch_Modifed.resx">
-      <DependentUpon>201812090840411_Batch_Modifed.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812091412026_db_modified.resx">
+      <DependentUpon>201812091412026_db_modified.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

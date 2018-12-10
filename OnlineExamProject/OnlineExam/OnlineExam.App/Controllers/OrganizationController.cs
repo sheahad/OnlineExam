@@ -30,8 +30,10 @@ namespace OnlineExam.App.Controllers
         [HttpPost]
         public ActionResult Save(OrganizationCreateViewModel model)
         {
-            model.CreateById = 18;
+            //model.Status = "A";
+            model.CreateById = 1;
             model.CreateDate = DateTime.Now;
+            
             ViewBag.UserName = User.Identity.Name;
             try
             {

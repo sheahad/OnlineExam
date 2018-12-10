@@ -3,7 +3,7 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class DB_Modifed : DbMigration
+    public partial class db_modified : DbMigration
     {
         public override void Up()
         {
@@ -191,7 +191,7 @@ namespace OnlineExam.DatabaseContext.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         OrganizationId = c.Int(nullable: false),
                         CourseId = c.Int(nullable: false),
-                        BatchNo = c.Int(nullable: false),
+                        BatchNo = c.String(),
                         Description = c.String(),
                         StartDate = c.DateTime(nullable: false),
                         EndDate = c.DateTime(nullable: false),

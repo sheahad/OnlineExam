@@ -7,7 +7,12 @@ namespace OnlineExam.App.Models
 {
     public class TrainerCreateViewModel
     {
-
+        public TrainerCreateViewModel()
+        {
+            Status = "A";
+            CreateById = 1;
+            CreateDate = DateTime.Now;
+        }
         public int Id { get; set; }
         public int OrganiaationId { get; set; }
         public string Name { get; set; }
