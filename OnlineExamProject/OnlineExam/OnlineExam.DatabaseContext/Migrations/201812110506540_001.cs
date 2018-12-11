@@ -3,7 +3,7 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class add_database_or_update : DbMigration
+    public partial class _001 : DbMigration
     {
         public override void Up()
         {
