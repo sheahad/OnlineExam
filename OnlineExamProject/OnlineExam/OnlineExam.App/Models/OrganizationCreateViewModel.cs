@@ -9,6 +9,13 @@ namespace OnlineExam.App.Models
 {
     public class OrganizationCreateViewModel
     {
+        public OrganizationCreateViewModel()
+        {
+            Status = "A";
+            CreateById = 1;
+            CreateDate = DateTime.Now;
+        }
+
         public int Id { get; set; }
         [Required(ErrorMessage = "Organization Name Is Required")]
         [StringLength(50, MinimumLength = 3)]

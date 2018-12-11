@@ -30,8 +30,15 @@ namespace OnlineExam.App.Controllers
         [HttpPost]
         public ActionResult Save(OrganizationCreateViewModel model)
         {
+<<<<<<< HEAD
             model.CreateById = 2;
             model.CreateDate = DateTime.Now;
+=======
+            //model.Status = "A";
+            model.CreateById = 1;
+            model.CreateDate = DateTime.Now;
+            
+>>>>>>> 71c14148bf144dcbe9e14381223d0d83c558fdb2
             ViewBag.UserName = User.Identity.Name;
             try
             {
@@ -63,6 +70,7 @@ namespace OnlineExam.App.Controllers
             }
 
             return View(model);
+<<<<<<< HEAD
         }
 
         public JsonResult IsNameExist(string name)
@@ -75,6 +83,8 @@ namespace OnlineExam.App.Controllers
 
 
             return Json(false, JsonRequestBehavior.AllowGet);
+=======
+>>>>>>> 71c14148bf144dcbe9e14381223d0d83c558fdb2
         }
 	}
 }

@@ -7,6 +7,12 @@ namespace OnlineExam.App.Models
 {
     public class BatchCreateViewModel
     {
+        public BatchCreateViewModel()
+        {
+            Status = "A";
+            CreateById = 1;
+            CreateDate = DateTime.Now;
+        }
         public int Id { get; set; }
         //
         public int OrganizationId { get; set; }

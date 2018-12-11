@@ -4,7 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace OnlineExam.Models.Models
 {
@@ -32,6 +31,5 @@ namespace OnlineExam.Models.Models
         public virtual User User { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        
     }
 }
