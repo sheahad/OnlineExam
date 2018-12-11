@@ -27,7 +27,7 @@ namespace OnlineExam.DatabaseContext.DatabaseContext
         public DbSet<Batch> Batches { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
-        public DbSet<Cours> Courses { get; set; }
+        public DbSet<Course> Courses { get; set; }
         public DbSet<CourseTag> CourseTags { get; set; }
         public DbSet<Exam> Exams { get; set; }
         public DbSet<Organization> Organizations { get; set; }

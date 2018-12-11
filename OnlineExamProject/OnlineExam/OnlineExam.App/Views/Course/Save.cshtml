@@ -1,4 +1,6 @@
-﻿@{
+﻿@model OnlineExam.App.Models.CourseCreateViewModel
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -7,11 +9,124 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Course Entry </title>
+
+    @if (ViewBag.SMsg != null)
+    {
+        <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+    }
+    @if (ViewBag.EMsg != null)
+    {
+        <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+    }
 </head>
+
 <body>
-    <div>
-    
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-2">
+
+        </div>
+    <div class="col-md-8">
+        <div>
+
+            <h1>Create Course</h1>
+
+
+            <div class="form-horizontal">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                                      @Html.LabelFor(c => c.OrganiaationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                      <div class="col-md-10">
+                                          @Html.DropDownListFor(c => c.OrganiaationId, selectList: Model.OrganizationSelectListItems, optionLabel: "Select...",
+                            htmlAttributes: new { @class = "form-control", id = "nameTextBox", placeholder = "OrganiaationId" })
+                                      </div>
+                                  </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(c => c.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(c => c.Name, null, new { @class = "form-control", placeholder = "Name" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(c => c.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(c => c.Code, null, new { @class = "form-control", placeholder = "Code" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(c => c.CourseDuration, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(c => c.CourseDuration, null, new { @class = "form-control", placeholder = "Course Duration" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(c => c.Credit, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(c => c.Credit, null, new { @class = "form-control", placeholder = "Credit Hour" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(c => c.Fee, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(c => c.Fee, null, new { @class = "form-control", placeholder = "Fee" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(c => c.Outline, htmlAttributes: new { @class = "control-label col-md-2" })
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(c => c.Outline, htmlAttributes: new { @class = "form-control", placeholder = " Outline Outline" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-success" />
+                                <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                    <span class="sr-only">70% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                    <span class="sr-only">0% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    }
+
+
 </body>
 </html>

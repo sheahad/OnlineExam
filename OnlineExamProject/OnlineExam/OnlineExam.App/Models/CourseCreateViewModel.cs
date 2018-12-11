@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OnlineExam.App.Models
 {
@@ -18,5 +20,9 @@ namespace OnlineExam.App.Models
         public string Status { get; set; }
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public List<SelectListItem> OrganizationSelectListItems { get; set; } 
+
+
     }
 }

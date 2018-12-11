@@ -11,29 +11,29 @@ namespace OnlineExam.BLL.BLL
    public class CoursManager
     {
        CoursRepositories _coursRepositories= new CoursRepositories();
-        public bool Add(Cours entity)
+        public bool Add(Course entity)
         {
             return _coursRepositories.Add(entity);
         }
-        public bool Update(Cours entity)
+        public bool Update(Course entity)
         {
             return _coursRepositories.Update(entity);
         }
-        public bool Remove(Cours entity)
+        public bool Remove(Course entity)
         {
             return _coursRepositories.Remove(entity);
         }
-        public List<Cours> GetAll()
+        public List<Course> GetAll()
         {
             return _coursRepositories.GetAll();
         }
 
-        public Cours GetById(int id)
+        public Course GetById(int id)
         {
             return _coursRepositories.GetById(id);
         }
 
-        public void LoadEmloyees(Cours entity)
+        public void LoadEmloyees(Course entity)
         {
             //Explicit loading
             _coursRepositories.LoadEmloyees(entity);

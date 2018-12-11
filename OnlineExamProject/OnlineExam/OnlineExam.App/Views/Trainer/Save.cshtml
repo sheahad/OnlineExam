@@ -1,17 +1,128 @@
-﻿@{
+﻿@using System.Web.Mvc.Html
+@model OnlineExam.App.Models.TrainerCreateViewModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Entry</title>
+
+    @if (ViewBag.SMsg != null)
+    {
+        <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+    }
+    @if (ViewBag.EMsg != null)
+    {
+        <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+    }
 </head>
+
 <body>
-    <div>
-    
-    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div>
+
+                <h1>Create Trainer</h1>
+                <h2> Welcome Mr. @ViewBag.UserName</h2>
+
+                <div class="form-horizontal">
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, new { @class = "form-control", })
+                            @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, new { @class = "form-control", })
+                            @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Name, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(c => c.Name, null, new {@class = "form-control", placeholder = "Name"})
+                            @Html.ValidationMessageFor(c => c.Name, null, new {@class = "text-danger"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.ConatactNo, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(c => c.ConatactNo, null, new {@class = "form-control", placeholder = "ConatactNo"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Email, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(c => c.Email, null, new {@class = "form-control", placeholder = "Email"})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.AddressLine1, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(c => c.AddressLine1, null, new {@class = "form-control", placeholder = "AddressLine1 "})
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.AddressLine2, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(c => c.AddressLine2, htmlAttributes: new {@class = "form-control", placeholder = "AddressLine2"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.CityId, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(c => c.CityId, htmlAttributes: new {@class = "form-control", placeholder = "CityId"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.PostalCode, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(c => c.PostalCode, htmlAttributes: new {@class = "form-control", placeholder = "Postal Code"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.CountryId, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            @Html.TextAreaFor(c => c.CountryId, htmlAttributes: new {@class = "form-control", placeholder = "CountryId"})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(c => c.Image, htmlAttributes: new {@class = "control-label col-md-2"})
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" name="Image">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Save" class="btn btn-success"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
 </body>
 </html>

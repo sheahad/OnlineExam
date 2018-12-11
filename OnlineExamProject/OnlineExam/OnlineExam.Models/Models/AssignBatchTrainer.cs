@@ -15,6 +15,7 @@ namespace OnlineExam.Models.Models
         [Key, Column(Order = 1)]
         public int TrainerId { get; set; }
         public string Status { get; set; }
+        [ForeignKey("User")]
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 

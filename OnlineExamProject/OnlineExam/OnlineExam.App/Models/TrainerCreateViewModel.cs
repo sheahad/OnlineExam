@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using OnlineExam.Models.Models;
 
 namespace OnlineExam.App.Models
 {
@@ -9,7 +12,7 @@ namespace OnlineExam.App.Models
     {
 
         public int Id { get; set; }
-        public int OrganiaationId { get; set; }
+        public int OrganizationId { get; set; }
         public string Name { get; set; }
         public string ConatactNo { get; set; }
         public string Email { get; set; }
@@ -22,5 +25,9 @@ namespace OnlineExam.App.Models
         public string Status { get; set; }
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public List<SelectListItem> OrganizationSelectListItems { get; set; }
+        public List<SelectListItem> CourseSelectListItems { get; set; }
+        public List<SelectListItem> BatchSelectListItems { get; set; }
     }
 }

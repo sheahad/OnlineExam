@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using OnlineExam.Models.Models;
 
 namespace OnlineExam.App.Models
 {
     public class OrganizationCreateViewModel
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Organization Name Is Required")]
+        [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
         public string Code { get; set; }
         public string Address { get; set; }
@@ -18,5 +22,6 @@ namespace OnlineExam.App.Models
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 
+        public virtual List<Course> Courses { get; set; }
     }
 }

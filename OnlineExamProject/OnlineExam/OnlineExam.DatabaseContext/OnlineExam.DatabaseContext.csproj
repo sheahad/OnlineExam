@@ -47,9 +47,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812060813499_Add_Models.cs" />
-    <Compile Include="Migrations\201812060813499_Add_Models.Designer.cs">
-      <DependentUpon>201812060813499_Add_Models.cs</DependentUpon>
+    <Compile Include="Migrations\201812090828116_DB_Modifed.cs" />
+    <Compile Include="Migrations\201812090828116_DB_Modifed.Designer.cs">
+      <DependentUpon>201812090828116_DB_Modifed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812090840411_Batch_Modifed.cs" />
+    <Compile Include="Migrations\201812090840411_Batch_Modifed.Designer.cs">
+      <DependentUpon>201812090840411_Batch_Modifed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812091600331_just_update_database.cs" />
+    <Compile Include="Migrations\201812091600331_just_update_database.Designer.cs">
+      <DependentUpon>201812091600331_just_update_database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812100140158_update.cs" />
+    <Compile Include="Migrations\201812100140158_update.Designer.cs">
+      <DependentUpon>201812100140158_update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +77,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812060813499_Add_Models.resx">
-      <DependentUpon>201812060813499_Add_Models.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812090828116_DB_Modifed.resx">
+      <DependentUpon>201812090828116_DB_Modifed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812090840411_Batch_Modifed.resx">
+      <DependentUpon>201812090840411_Batch_Modifed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812091600331_just_update_database.resx">
+      <DependentUpon>201812091600331_just_update_database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812100140158_update.resx">
+      <DependentUpon>201812100140158_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
