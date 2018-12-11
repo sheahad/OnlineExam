@@ -7,13 +7,13 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class db_modified : IMigrationMetadata
+    public sealed partial class add_database_or_update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(db_modified));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(add_database_or_update));
         
         string IMigrationMetadata.Id
         {
-            get { return "201812091412026_db_modified"; }
+            get { return "201812110408144_add_database_or_update"; }
         }
         
         string IMigrationMetadata.Source

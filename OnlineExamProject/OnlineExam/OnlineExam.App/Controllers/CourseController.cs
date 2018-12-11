@@ -24,7 +24,7 @@ namespace OnlineExam.App.Controllers
             model.OrganizationSelectListItems = _organizationManager.GetAll()
                 .Select(c => new SelectListItem() {Value = c.Id.ToString(), Text = c.Name}).ToList();
 
-            return View();
+            return View(model);
              
         }
 

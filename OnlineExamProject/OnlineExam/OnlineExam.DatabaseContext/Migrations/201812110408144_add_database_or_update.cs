@@ -3,7 +3,7 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class db_modified : DbMigration
+    public partial class add_database_or_update : DbMigration
     {
         public override void Up()
         {
@@ -243,16 +243,19 @@ namespace OnlineExam.DatabaseContext.Migrations
                         Status = c.String(),
                         CreateById = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
+                        Trainer_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Countries", t => t.CountryId, cascadeDelete: false)
                 .ForeignKey("dbo.Cities", t => t.CityId, cascadeDelete: false)
                 .ForeignKey("dbo.Organizations", t => t.OrganizationId, cascadeDelete: false)
+                .ForeignKey("dbo.Trainers", t => t.Trainer_Id)
                 .ForeignKey("dbo.Users", t => t.CreateById, cascadeDelete: false)
                 .Index(t => t.OrganizationId)
                 .Index(t => t.CityId)
                 .Index(t => t.CountryId)
-                .Index(t => t.CreateById);
+                .Index(t => t.CreateById)
+                .Index(t => t.Trainer_Id);
             
             CreateTable(
                 "dbo.AssignCourseTrainers",
@@ -466,6 +469,7 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropForeignKey("dbo.Batches", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.AssignBatchTrainers", "CreateById", "dbo.Users");
             DropForeignKey("dbo.Trainers", "CreateById", "dbo.Users");
+            DropForeignKey("dbo.Trainers", "Trainer_Id", "dbo.Trainers");
             DropForeignKey("dbo.AssignCourseTrainers", "CreateById", "dbo.Users");
             DropForeignKey("dbo.Exams", "CreateById", "dbo.Users");
             DropForeignKey("dbo.ScheduleExams", "CreateById", "dbo.Users");
@@ -527,6 +531,7 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropIndex("dbo.AssignCourseTrainers", new[] { "CreateById" });
             DropIndex("dbo.AssignCourseTrainers", new[] { "TrainerId" });
             DropIndex("dbo.AssignCourseTrainers", new[] { "CourseId" });
+            DropIndex("dbo.Trainers", new[] { "Trainer_Id" });
             DropIndex("dbo.Trainers", new[] { "CreateById" });
             DropIndex("dbo.Trainers", new[] { "CountryId" });
             DropIndex("dbo.Trainers", new[] { "CityId" });

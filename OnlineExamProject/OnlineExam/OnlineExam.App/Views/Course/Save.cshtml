@@ -37,71 +37,71 @@
 
             <div class="form-horizontal">
 
-                <div class="row">
+                
                     <div class="col-md-12">
-                        <div class="form-group">
-                                      @Html.LabelFor(c => c.OrganiaationId, htmlAttributes: new { @class = "control-label col-md-2" })
-                                      <div class="col-md-10">
-                                          @Html.DropDownListFor(c => c.OrganiaationId, selectList: Model.OrganizationSelectListItems, optionLabel: "Select...",
-                            htmlAttributes: new { @class = "form-control", id = "nameTextBox", placeholder = "OrganiaationId" })
-                                      </div>
-                                  </div>
-
-
-
-                        <div class="form-group">
-                            @Html.LabelFor(c => c.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </div>
-                        <div class="form-group">
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.OrganiaationId, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.TextBoxFor(c => c.Name, null, new { @class = "form-control", placeholder = "Name" })
+                                @Html.DropDownListFor(c => c.OrganiaationId, selectList: Model.OrganizationSelectListItems, optionLabel: "Select...",
+                            htmlAttributes: new { @class = "form-control", id = "nameTextBox", placeholder = "OrganiaationId" })
                             </div>
                         </div>
-                        <div class="form-group">
-                            @Html.LabelFor(c => c.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(c => c.Name, null, new { @class = "form-control", placeholder = "Name" })
+
+                            </div>
                         </div>
-                        <div class="form-group">
+                       
+                           
+                        
+                        
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.Code, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.TextBoxFor(c => c.Code, null, new { @class = "form-control", placeholder = "Code" })
                             </div>
                         </div>
-                        <div class="form-group">
+                       
+               
+                        <div class="form-group form-row">
                             @Html.LabelFor(c => c.CourseDuration, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </div>
-                        <div class="form-group">
                             <div class="col-md-10">
                                 @Html.TextBoxFor(c => c.CourseDuration, null, new { @class = "form-control", placeholder = "Course Duration" })
                             </div>
                         </div>
-                        <div class="form-group">
+                     
+                        <div class="form-group form-row">
                             @Html.LabelFor(c => c.Credit, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </div>
-                        <div class="form-group">
                             <div class="col-md-10">
                                 @Html.TextBoxFor(c => c.Credit, null, new { @class = "form-control", placeholder = "Credit Hour" })
                             </div>
                         </div>
+                      
 
-                        <div class="form-group">
+                        <div class="form-group form-row">
                             @Html.LabelFor(c => c.Fee, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </div>
-                        <div class="form-group">
                             <div class="col-md-10">
                                 @Html.TextBoxFor(c => c.Fee, null, new { @class = "form-control", placeholder = "Fee" })
                             </div>
                         </div>
+                   
 
-                        <div class="form-group">
+                        <div class="form-group form-row">
                             @Html.LabelFor(c => c.Outline, htmlAttributes: new { @class = "control-label col-md-2" })
-                        </div>
-                        <div class="form-group">
                             <div class="col-md-10">
                                 @Html.TextAreaFor(c => c.Outline, htmlAttributes: new { @class = "form-control", placeholder = " Outline Outline" })
                             </div>
                         </div>
+                   
 
 
-                        <div class="form-group">
+                        <div class="form-group form-row">
 
                             <div class="col-md-offset-2 col-md-10">
                                 <input type="submit" value="Save" class="btn btn-success" />
@@ -121,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                
             </div>
         </div>
     </div>
