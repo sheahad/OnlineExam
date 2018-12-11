@@ -26,10 +26,8 @@
     <body>
         @using (Html.BeginForm())
         {
-            <div class="col-md-2">
-            
-            </div>
-            <div class="col-md-8">
+           
+            @*<div class="col-md-8">
                 <div>
                
                     <h1>Create Organization</h1>
@@ -90,7 +88,102 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
+            
+            <!-- table light start -->
+                    <div class="col-lg-6 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title">Create Organization</h4>
+                                <div class="single-table">
+                                    <div class="table-responsive">
+                                        <table class="table text-center">
+                                            <tbody>
+                                                <tr>
+                                                    <td>@Html.LabelFor(c => c.Name, htmlAttributes: new { @class = "control-label" })</td>
+                                                    <td>
+                                                        @Html.TextBoxFor(c => c.Name, null, new { @class = "form-control", placeholder = "Name" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.ValidationMessageFor(c => c.Name, null, new { @class = "text-danger" })
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>@Html.LabelFor(c => c.Code, htmlAttributes: new { @class = "control-label" })</td>
+                                                    <td>
+                                                        @Html.TextBoxFor(c => c.Code, null, new { @class = "form-control", placeholder = "Code" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.ValidationMessageFor(c => c.Code, null, new { @class = "text-danger" })
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>@Html.LabelFor(c => c.Address, htmlAttributes: new { @class = "" })</td>
+                                                    <td>
+                                                        @Html.TextBoxFor(c => c.Address, null, new { @class = "form-control", placeholder = "Address" })
+
+                                                    </td>
+                                                    <td>
+                                                       
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>@Html.LabelFor(c => c.About, htmlAttributes: new { @class = "control-label" })</td>
+                                              
+                                                 
+                                                    <td>
+                                                       @Html.TextAreaFor(c => c.About, htmlAttributes: new { @class = "form-control", placeholder = "About" })
+                                                    </td>
+                                                    <td>
+                                                       
+                                                    </td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>@Html.LabelFor(c => c.ConatactNo, htmlAttributes: new { @class = "control-label" })</td>
+
+
+                                                    <td>
+                                                        @Html.TextBoxFor(c => c.ConatactNo, null, new { @class = "form-control", placeholder = "Contact Number" })
+                                                    </td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td>@Html.LabelFor(c => c.Logo, htmlAttributes: new { @class = "control-label" })</td>
+                                                    
+                                                    
+                                                    <td>
+                                                        <input type="file" class="form-control" name="Logo">
+                                                    </td>
+                                                    <td></td>
+
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+
+
+                                                    <td>
+                                                        <input type="submit" value="Save" class="btn btn-success" />
+                                                    </td>
+                                                    <td>
+                                                        
+                                                    </td>
+
+                                                </tr>
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- table light end -->
+
         }
         
        
