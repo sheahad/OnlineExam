@@ -20,7 +20,7 @@ namespace OnlineExam.App.Controllers
         //
         // GET: /Organization/
        
-            [HttpGet]
+         [HttpGet]
         public ActionResult Save()
         {
             //ViewBag.UserName = User.Identity.Name;
@@ -31,7 +31,7 @@ namespace OnlineExam.App.Controllers
         public ActionResult Save(OrganizationCreateViewModel model)
         {
 
-            ViewBag.UserName = User.Identity.Name;
+            //ViewBag.UserName = User.Identity.Name;
             try
             {
                 if (ModelState.IsValid)
@@ -53,6 +53,7 @@ namespace OnlineExam.App.Controllers
 
                 }
                 message = Utility.GetModelStateError(ModelState);
+                ViewBag.EMsg = message;
             }
             catch (Exception )
             {
