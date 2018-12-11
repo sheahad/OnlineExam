@@ -14,13 +14,37 @@ namespace OnlineExam.App.Controllers
     public class TrainerController : Controller
     {
          TrainerManager _trainerManager = new TrainerManager();
+        OrganizationManager _organizationManager=new OrganizationManager();
+        BatchManager _batchManager=new BatchManager();
+        CoursManager _coursManager=new CoursManager();
+        CityManager _cityManager=new CityManager();
+        CountryManager _countryManager=new CountryManager();
+
          public string message = "";
         //
         // GET: /Trainer/
         [HttpGet]
         public ActionResult Save()
         {
-            return View();
+            var model = new TrainerCreateViewModel();
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.BatchSelectListItems = _batchManager.GetAll()
+                .Select(c => new SelectListItem() {Value = c.Id.ToString(), Text = c.BatchNo}).ToList();
+
+            model.CourseSelectListItems = _coursManager.GetAll()
+                .Select(c => new SelectListItem() {Value = c.Id.ToString(), Text = c.Code}).ToList();
+
+            model.CityListItemList = _cityManager.GetAll()
+                .Select(c => new SelectListItem() {Value = c.Id.ToString(), Text = c.Name}).ToList();
+
+            model.CountryListItem = _cityManager.GetAll()
+         .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            return View(model);
+
+
         }
         [HttpPost]
         public ActionResult Save(TrainerCreateViewModel model)
@@ -54,6 +78,12 @@ namespace OnlineExam.App.Controllers
                 message = "Saved Faild!";
                 ViewBag.EMsg = message;
             }
+            return View(model);
+        }
+
+        public ActionResult Search()
+        {
+            var model = _trainerManager.GetAll().ToList();
             return View(model);
         }
 	}

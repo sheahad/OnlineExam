@@ -249,6 +249,7 @@
     <Content Include="Views\LogIn\LogIn.cshtml" />
     <Content Include="Views\Shared\_LayoutLogIn.cshtml" />
     <Content Include="Views\Course\CourseInformation.cshtml" />
+    <Content Include="Views\Trainer\Search.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
