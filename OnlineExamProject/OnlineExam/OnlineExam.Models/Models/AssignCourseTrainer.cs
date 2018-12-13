@@ -15,7 +15,7 @@ namespace OnlineExam.Models.Models
         public int CourseId { get; set; }
         [Key, Column(Order = 1)]
         public int TrainerId { get; set; }
-        public int Lead { get; set; }
+        public bool Lead { get; set; }
         public string Status { get; set; }
         [ForeignKey("User")]
         public int CreateById { get; set; }

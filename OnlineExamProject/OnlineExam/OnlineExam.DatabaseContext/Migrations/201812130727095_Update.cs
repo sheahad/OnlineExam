@@ -3,7 +3,7 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class _001 : DbMigration
+    public partial class Update : DbMigration
     {
         public override void Up()
         {
@@ -263,7 +263,7 @@ namespace OnlineExam.DatabaseContext.Migrations
                     {
                         CourseId = c.Int(nullable: false),
                         TrainerId = c.Int(nullable: false),
-                        Lead = c.Int(nullable: false),
+                        Lead = c.Boolean(nullable: false),
                         Status = c.String(),
                         CreateById = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
@@ -363,7 +363,7 @@ namespace OnlineExam.DatabaseContext.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        OrganiaationId = c.Int(nullable: false),
+                        OrganizationId = c.Int(nullable: false),
                         CourseId = c.Int(nullable: false),
                         ExamType = c.String(),
                         Code = c.String(),
@@ -373,15 +373,14 @@ namespace OnlineExam.DatabaseContext.Migrations
                         Status = c.String(),
                         CreateById = c.Int(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
-                        Organization_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: false)
-                .ForeignKey("dbo.Organizations", t => t.Organization_Id)
+                .ForeignKey("dbo.Organizations", t => t.OrganizationId, cascadeDelete: false)
                 .ForeignKey("dbo.Users", t => t.CreateById, cascadeDelete: false)
+                .Index(t => t.OrganizationId)
                 .Index(t => t.CourseId)
-                .Index(t => t.CreateById)
-                .Index(t => t.Organization_Id);
+                .Index(t => t.CreateById);
             
             CreateTable(
                 "dbo.Organizations",
@@ -484,7 +483,7 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropForeignKey("dbo.AttendQuestions", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Answers", "QuestionId", "dbo.Questions");
             DropForeignKey("dbo.Participants", "OrganizationId", "dbo.Organizations");
-            DropForeignKey("dbo.Exams", "Organization_Id", "dbo.Organizations");
+            DropForeignKey("dbo.Exams", "OrganizationId", "dbo.Organizations");
             DropForeignKey("dbo.Courses", "OrganizationId", "dbo.Organizations");
             DropForeignKey("dbo.Batches", "OrganizationId", "dbo.Organizations");
             DropForeignKey("dbo.AttendExams", "OrganizationId", "dbo.Organizations");
@@ -518,9 +517,9 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropIndex("dbo.Questions", new[] { "CourseId" });
             DropIndex("dbo.Questions", new[] { "OrganizationId" });
             DropIndex("dbo.Organizations", new[] { "CreateById" });
-            DropIndex("dbo.Exams", new[] { "Organization_Id" });
             DropIndex("dbo.Exams", new[] { "CreateById" });
             DropIndex("dbo.Exams", new[] { "CourseId" });
+            DropIndex("dbo.Exams", new[] { "OrganizationId" });
             DropIndex("dbo.Tags", new[] { "CreateById" });
             DropIndex("dbo.CourseTags", new[] { "CreateById" });
             DropIndex("dbo.CourseTags", new[] { "CourseId" });
