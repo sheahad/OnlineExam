@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OnlineExam.Models.Models;
 
 namespace OnlineExam.App.Models
 {
@@ -30,8 +31,13 @@ namespace OnlineExam.App.Models
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 
-        public List<SelectListItem> OrganizationSelectListItems { get; set; } 
+        public string Tag { get; set; }
+        public string TagId { get; set; }
 
+        public List<SelectListItem> Tags { get; set; }
+
+        public List<SelectListItem> OrganizationSelectListItems { get; set; }
+        public List<CourseTag> CourseTags { get; set; } 
 
     }
 }

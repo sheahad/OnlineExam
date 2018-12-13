@@ -14,6 +14,8 @@ namespace OnlineExam.App.Controllers
     {
         CoursManager _courseManager = new CoursManager();
         OrganizationManager _organizationManager=new OrganizationManager();
+
+        TagManager _tagManager=new TagManager();
         public string message="";
         //
         // GET: /Course/
@@ -24,6 +26,9 @@ namespace OnlineExam.App.Controllers
             model.OrganizationSelectListItems = _organizationManager.GetAll()
                 .Select(c => new SelectListItem() {Value = c.Id.ToString(), Text = c.Name}).ToList();
 
+            model.Tags=_tagManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
             return View(model);
              
         }
@@ -31,9 +36,8 @@ namespace OnlineExam.App.Controllers
         [HttpPost]
         public ActionResult Save(CourseCreateViewModel model)
         {
-            model.CreateById = 1;
-            model.CreateDate = DateTime.Now;
-            model.OrganizationId = 3;
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                 .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
             try
             {
                 var course = Mapper.Map<Course>(model);
