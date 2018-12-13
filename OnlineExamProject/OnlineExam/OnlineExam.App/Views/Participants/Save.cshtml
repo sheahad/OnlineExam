@@ -50,16 +50,16 @@
                     <div class="form-group form-row">
                         <h7 class="control-label col-md-2">Batch</h7>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(c => c.Id, Model.BatchSelectListItems, new {@class = "form-control",})
-                            @Html.ValidationMessageFor(c => c.Id, null, new {@class = "text-danger"})
+                            @Html.DropDownListFor(c => c.BatchId, Model.BatchSelectListItems, new {@class = "form-control",})
+                            @Html.ValidationMessageFor(c => c.BatchId, null, new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group form-row">
                         <h7 class="control-label col-md-2">Course</h7>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(c => c.Id, Model.CourseSelectListItems, new { @class = "form-control", })
-                            @Html.ValidationMessageFor(c => c.Id, null, new { @class = "text-danger" })
+                            @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, new { @class = "form-control", })
+                            @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -123,12 +123,12 @@
                         </div>
                     </div>
                  
-
+                    
                         <div class="form-group form-row">
                             <h7 class="control-label col-md-2">City</h7>
                             <div class="col-md-10">
-                                @Html.DropDownListFor(c => c.Name, Model.CityListItemList, new { @class = "form-control", })
-                                @Html.ValidationMessageFor(c => c.Name, null, new { @class = "text-danger" })
+                                @Html.DropDownListFor(c => c.CityId, Model.CityListItemList, new { @class = "form-control", })
+                                @Html.ValidationMessageFor(c => c.CityId, null, new { @class = "text-danger" })
                             </div>
                         </div>
 
@@ -142,8 +142,8 @@
                         <div class="form-group form-row">
                             <h7 class="control-label col-md-2">Country</h7>
                             <div class="col-md-10">
-                                @Html.DropDownListFor(c => c.Name, Model.CountryListItem, new {@class = "form-control",})
-                                @Html.ValidationMessageFor(c => c.Name, null, new {@class = "text-danger"})
+                                @Html.DropDownListFor(c => c.CountryId, Model.CountryListItem, new { @class = "form-control", })
+                                @Html.ValidationMessageFor(c => c.CountryId, null, new { @class = "text-danger" })
                             </div>
                         </div>
 

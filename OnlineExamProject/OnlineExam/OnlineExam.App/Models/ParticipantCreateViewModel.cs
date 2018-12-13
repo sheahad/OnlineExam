@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OnlineExam.Models.Models;
 
 namespace OnlineExam.App.Models
 {
@@ -46,5 +47,11 @@ namespace OnlineExam.App.Models
         public List<SelectListItem> BatchSelectListItems { get; set; }
         public List<SelectListItem> CityListItemList { get; set; }
         public List<SelectListItem> CountryListItem { get; set; }
+        public int BatchId { get; set; }
+        public int CourseId { get; set; }
+
+        public List<AssignBatchParticipant> AssignBatchParticipants { get; set; }
+
+
     }
 }

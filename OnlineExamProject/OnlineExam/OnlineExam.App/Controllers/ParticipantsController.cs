@@ -71,10 +71,18 @@ namespace OnlineExam.App.Controllers
                 if (ModelState.IsValid)
                 {
                     var participant = Mapper.Map<Participant>(model);
+                    
+                    participant.AssignBatchParticipants.Add(
+                           new AssignBatchParticipant() { ParticipantId = participant.Id, BatchId = model.BatchId, Status = participant.Status, CreateById = participant.CreateById, CreateDate = participant.CreateDate }
+                           );
+
                     bool isSaved = _participantManager.Add(participant);
 
                     if (isSaved)
                     {
+
+                       
+
                         message = "Saved Successfully!";
                         ViewBag.SMsg = message;
                     }
