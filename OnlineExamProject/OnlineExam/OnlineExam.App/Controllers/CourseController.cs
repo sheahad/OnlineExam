@@ -31,9 +31,9 @@ namespace OnlineExam.App.Controllers
         [HttpPost]
         public ActionResult Save(CourseCreateViewModel model)
         {
-            model.CreateById = 2;
+            model.CreateById = 1;
             model.CreateDate = DateTime.Now;
-            model.OrganiaationId = 4;
+            model.OrganizationId = 3;
             try
             {
                 var course = Mapper.Map<Course>(model);

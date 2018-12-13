@@ -1,13 +1,17 @@
-﻿$(document).ready(function () {
-    var url = "../../Organization/GetAutoCode";
+﻿
+
+$(document).ready(function () {
+    var url = "../../Participants/GetAutoCode";
     $.post(url, function (rData) {
         if (rData != undefined && rData != null && rData != "") {
-            $("#Code").val(rData);
+            $("#RegNo").val(rData);
         }
     });
 
 
 });
+
+
 
 
 $("#btnsubmit").click(function () {

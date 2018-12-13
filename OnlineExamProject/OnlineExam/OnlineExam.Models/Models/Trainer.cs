@@ -36,6 +36,8 @@ namespace OnlineExam.Models.Models
         public virtual Organization Organization { get; set; }
         public virtual User User { get; set; }
         public List<Trainer> TrainerList { get; set; }
+
+        
     }
 
 

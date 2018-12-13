@@ -15,6 +15,7 @@ namespace OnlineExam.App.Controllers
     public class OrganizationController : Controller
     {
         OrganizationManager _organizationManager = new OrganizationManager();
+        Organization _organization=new Organization();
 
         public string message = "";
         //
@@ -24,8 +25,14 @@ namespace OnlineExam.App.Controllers
         public ActionResult Save()
         {
             //ViewBag.UserName = User.Identity.Name;
+            //var model = _organizationManager.GetAll().ToList();
+         
 
-            return View();
+            var model = new OrganizationCreateViewModel();
+             //model.OrganizationItemList = _organizationManager.GetAll();
+           
+            return View(model);
+            
         }
         [HttpPost]
         public ActionResult Save(OrganizationCreateViewModel model)
@@ -64,6 +71,18 @@ namespace OnlineExam.App.Controllers
 
             return View(model);
 
+        }
+
+        public ActionResult Search()
+        {
+            var model = _organizationManager.GetAll().ToList();
+            return View(model);
+        }
+
+        public JsonResult GetAutoCode()
+        {
+            var autoCode = "ORGA_" +DateTime.Now.Millisecond + "00001";
+            return Json(autoCode, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult IsNameExist(string name)

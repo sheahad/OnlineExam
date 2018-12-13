@@ -30,5 +30,7 @@ namespace OnlineExam.Models.Models
         public virtual ICollection<Participant> Participants { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
         public virtual ICollection<Trainer> Trainers { get; set; }
+
+        //public List<Organization> OrganizationList { get; set; }
     }
 }

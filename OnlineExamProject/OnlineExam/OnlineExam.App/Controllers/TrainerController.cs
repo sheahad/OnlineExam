@@ -39,7 +39,7 @@ namespace OnlineExam.App.Controllers
             model.CityListItemList = _cityManager.GetAll()
                 .Select(c => new SelectListItem() {Value = c.Id.ToString(), Text = c.Name}).ToList();
 
-            model.CountryListItem = _cityManager.GetAll()
+            model.CountryListItem = _countryManager.GetAll()
          .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
 
             return View(model);

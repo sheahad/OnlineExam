@@ -12,7 +12,7 @@ namespace OnlineExam.Models.Models
      
 
         public int Id { get; set; }
-        public int OrganiaationId { get; set; }
+        public int OrganizationId { get; set; }
         public int CourseId { get; set; }
         public string ExamType { get; set; }
         public string Code { get; set; }

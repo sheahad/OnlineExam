@@ -3,189 +3,110 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Scripts{
+
+    <script src="~/Scripts/Project/Organization/OrganizationCreate.js"></script>
+}
+
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>Entry</title>
-        
-        @if (ViewBag.SMsg != null)
-        {
-            <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Entry</title>
 
-        }
-        @if (ViewBag.EMsg != null)
-        {
-            <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+    @if (ViewBag.SMsg != null)
+    {
+        <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
 
-        }
-    </head>
+    }
+    @if (ViewBag.EMsg != null)
+    {
+        <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+    }
+</head>
 
 
-    <body>
-        @using (Html.BeginForm())
-        {
-           
-            @*<div class="col-md-8">
-                <div>
-               
-                    <h1>Create Organization</h1>
-                    <h2> Welcome Mr. @ViewBag.UserName</h2>
+<body>
+@using (Html.BeginForm())
+{
+
+    <div class="col-md-9">
+        <div>
+
+            <h5>Create Organization</h5>
+            <br/>
+            <div class="form-horizontal">
                 
-                    <div class="form-horizontal">
-                        <div class="form-group form-row">
+                <div class="form-group form-row">
 
-                            @Html.LabelFor(c => c.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(c => c.Name, null, new { @class = "form-control", placeholder = "Name" })
+                    @Html.LabelFor(c => c.Name, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(c => c.Name, null, new {@class = "form-control", placeholder = "Name"})
 
-                                @Html.ValidationMessageFor(c => c.Name, null, new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(c => c.Name, null, new {@class = "text-danger"})
 
-                            </div>
-                        </div>
-                        <div class="form-group form-row">
-
-                            @Html.LabelFor(c => c.Code, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(c => c.Code, null, new { @class = "form-control", placeholder = "Code" })
-                            </div>
-                        </div>
-                        <div class="form-group form-row">
-
-                            @Html.LabelFor(c => c.Address, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(c => c.Address, null, new { @class = "form-control", placeholder = "Address" })
-                            </div>
-                        </div>
-                        <div class="form-group form-row">
-
-                            @Html.LabelFor(c => c.ConatactNo, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(c => c.ConatactNo, null, new { @class = "form-control", placeholder = "Contact Number" })
-                            </div>
-                        </div>
-                        <div class="form-group form-row">
-
-                            @Html.LabelFor(c => c.About, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextAreaFor(c => c.About, htmlAttributes: new { @class = "form-control", placeholder = "Contact Number" })
-                            </div>
-                        </div>
-                        <div class="form-group form-row">
-
-                            @Html.LabelFor(c => c.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                <input type="file" class="form-control" name="Logo">
-                            </div>
-
-                        </div>
-                        <div class="form-group form-row">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Save" class="btn btn-success" />
-                            </div>
-
-                        </div>
                     </div>
                 </div>
-            </div>*@
-            
-            <!-- table light start -->
-                    <div class="col-lg-6 mt-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="header-title">Create Organization</h4>
-                                <div class="single-table">
-                                    <div class="table-responsive">
-                                        <table class="table text-center">
-                                            <tbody>
-                                                <tr>
-                                                    <td>@Html.LabelFor(c => c.Name, htmlAttributes: new { @class = "control-label" })</td>
-                                                    <td>
-                                                        @Html.TextBoxFor(c => c.Name, null, new { @class = "form-control", placeholder = "Name" })
-                                                    </td>
-                                                    <td>
-                                                        @Html.ValidationMessageFor(c => c.Name, null, new { @class = "text-danger" })
-                                                    </td>
-                                                    
-                                                </tr>
-                                                <tr>
-                                                    <td>@Html.LabelFor(c => c.Code, htmlAttributes: new { @class = "control-label" })</td>
-                                                    <td>
-                                                        @Html.TextBoxFor(c => c.Code, null, new { @class = "form-control", placeholder = "Code" })
-                                                    </td>
-                                                    <td>
-                                                        @Html.ValidationMessageFor(c => c.Code, null, new { @class = "text-danger" })
-                                                    </td>
+                <div class="form-group form-row">
 
-                                                </tr>
-                                                <tr>
-                                                    <td>@Html.LabelFor(c => c.Address, htmlAttributes: new { @class = "" })</td>
-                                                    <td>
-                                                        @Html.TextBoxFor(c => c.Address, null, new { @class = "form-control", placeholder = "Address" })
-
-                                                    </td>
-                                                    <td>
-                                                       
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>@Html.LabelFor(c => c.About, htmlAttributes: new { @class = "control-label" })</td>
-                                              
-                                                 
-                                                    <td>
-                                                       @Html.TextAreaFor(c => c.About, htmlAttributes: new { @class = "form-control", placeholder = "About" })
-                                                    </td>
-                                                    <td>
-                                                       
-                                                    </td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>@Html.LabelFor(c => c.ConatactNo, htmlAttributes: new { @class = "control-label" })</td>
-
-
-                                                    <td>
-                                                        @Html.TextBoxFor(c => c.ConatactNo, null, new { @class = "form-control", placeholder = "Contact Number" })
-                                                    </td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td>@Html.LabelFor(c => c.Logo, htmlAttributes: new { @class = "control-label" })</td>
-                                                    
-                                                    
-                                                    <td>
-                                                        <input type="file" class="form-control" name="Logo">
-                                                    </td>
-                                                    <td></td>
-
-                                                </tr>
-                                                <tr>
-                                                    <td></td>
-
-
-                                                    <td>
-                                                        <input type="submit" value="Save" class="btn btn-success" />
-                                                    </td>
-                                                    <td>
-                                                        
-                                                    </td>
-
-                                                </tr>
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    @Html.LabelFor(c => c.Code, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(c => c.Code, null, new { @class = "form-control", placeholder = "Code"})
                     </div>
-                    <!-- table light end -->
+                </div>
+                <div class="form-group form-row">
 
-        }
-        
-       
-    </body>
+                    @Html.LabelFor(c => c.Address, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(c => c.Address, null, new {@class = "form-control", placeholder = "Address"})
+                    </div>
+                </div>
+                <div class="form-group form-row">
+
+                    @Html.LabelFor(c => c.ConatactNo, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-6">
+                        @Html.TextBoxFor(c => c.ConatactNo, null, new {@class = "form-control", placeholder = "Contact Number"})
+                    </div>
+                </div>
+                <div class="form-group form-row">
+
+                    @Html.LabelFor(c => c.About, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-6">
+                        @Html.TextAreaFor(c => c.About, htmlAttributes: new {@class = "form-control", placeholder = "Contact Number"})
+                    </div>
+                </div>
+                <div class="form-group form-row">
+
+                    @Html.LabelFor(c => c.Logo, htmlAttributes: new {@class = "control-label col-md-2"})
+                    <div class="col-md-6">
+                        <input type="file" class="form-control" name="Logo">
+                    </div>
+
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="submit" id="btnsubmit" value="Save" class="btn btn-success"/>
+                        <input type="submit" id="btnedit" value="Edit" class="btn btn-success"/>
+                        <input type="submit" id="btnserch" value="Search" class="btn btn-success" />
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+</body>
 </html>
+
+
+
+
+
+
+          

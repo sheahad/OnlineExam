@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OnlineExam.App.Models
 {
@@ -14,7 +15,7 @@ namespace OnlineExam.App.Models
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
-        public int OrganiaationId { get; set; }
+        public int OrganizationId { get; set; }
         public int CourseId { get; set; }
         public int ExamId { get; set; }
         public Nullable<double> Mark { get; set; }
@@ -24,5 +25,7 @@ namespace OnlineExam.App.Models
         public string Status { get; set; }
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
+
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages.Html;
 using OnlineExam.Models.Models;
 
 namespace OnlineExam.App.Models
@@ -30,5 +31,9 @@ namespace OnlineExam.App.Models
         public DateTime CreateDate { get; set; }
 
         public virtual List<Course> Courses { get; set; }
+
+        public List<SelectListItem> OrganizationList { get; set; }
+
+        public List<Organization> OrganizationItemList { set; get; } 
     }
 }

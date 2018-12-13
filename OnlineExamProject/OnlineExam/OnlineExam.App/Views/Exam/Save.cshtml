@@ -1,17 +1,101 @@
-﻿@{
+﻿@model OnlineExam.App.Models.ExamCreateViewModel
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Entry</title>
+
+    @if (ViewBag.SMsg != null)
+    {
+        <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+    }
+    @if (ViewBag.EMsg != null)
+    {
+        <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+    }
 </head>
+
 <body>
-    <div>
-    
-    </div>
+    @using (Html.BeginForm())
+    {
+                <div class="col-md-9 ">
+                    <div>
+                        <br/>
+
+                        <div class="form-horizontal">
+
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <h7 class="control-label col-md-2">Course</h7>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.Id, Model.CourseSelectListItems, new {@class = "form-control",})
+                                    @Html.ValidationMessageFor(c => c.Id, null, new {@class = "text-danger"})
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <h7 class="control-label col-md-2">Exam Type</h7>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.Id, Model.ExamTypeListItems, new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.Id, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group form-row">
+                                
+                                @Html.LabelFor(c => c.Code, htmlAttributes: new {@class = "control-label col-md-2"})
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.Code, null, new {@class = "form-control", placeholder = "Code"})
+                                    @Html.ValidationMessageFor(c => c.Code, null, new {@class = "text-danger"})
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.Topic, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.Topic, null, new { @class = "form-control", placeholder = "Topic" })
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.FullMark, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.FullMark, null, new { @class = "form-control", placeholder = "Full Mark" })
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.TextBoxFor(c => c.Duration, null, new { @class = "form-control ", placeholder = "Duration ",Type="time" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <div class="col-md-2"></div>
+                                <div class=" col-md-2 ">
+                                    <input type="submit" value="Save" class="btn btn-success float-left" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+    }
+
+
 </body>
 </html>

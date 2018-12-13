@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace OnlineExam.App.Models
 {
@@ -14,15 +16,23 @@ namespace OnlineExam.App.Models
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
-        public int OrganiaationId { get; set; }
+        [Display(Name = "Organization")]
+        public int OrganizationId { get; set; }
         public string Name { get; set; }
+        [Display(Name="Reg No")]
         public string RegNo { get; set; }
+        [Required(ErrorMessage = "Contact Number Is Required 11 Digit")]
+        [StringLength(11, MinimumLength = 11)]
+        [Display(Name = "Conatact No")]
         public string ConatactNo { get; set; }
         public string Email { get; set; }
+         [Display(Name = "Address")]
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
+        [Display(Name = "City")]
         public int CityId { get; set; }
         public string PostalCode { get; set; }
+        [Display(Name = "Country")]
         public int CountryId { get; set; }
         public string Profession { get; set; }
         public string HighestAcademic { get; set; }
@@ -30,5 +40,11 @@ namespace OnlineExam.App.Models
         public string Status { get; set; }
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
+
+        public List<SelectListItem> OrganizationSelectListItems { get; set; }
+        public List<SelectListItem> CourseSelectListItems { get; set; }
+        public List<SelectListItem> BatchSelectListItems { get; set; }
+        public List<SelectListItem> CityListItemList { get; set; }
+        public List<SelectListItem> CountryListItem { get; set; }
     }
 }

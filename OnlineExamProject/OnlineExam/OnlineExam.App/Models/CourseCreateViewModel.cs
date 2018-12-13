@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,9 @@ namespace OnlineExam.App.Models
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
-        public int OrganiaationId { get; set; }
+        public int OrganizationId { get; set; }
+        [Required(ErrorMessage = "Course Name Is Required")]
+        [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
         public string Code { get; set; }
         public Nullable<double> CourseDuration { get; set; }
