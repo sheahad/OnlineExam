@@ -17,7 +17,7 @@ namespace OnlineExam.App.Models
             CreateDate = DateTime.Now;
         }
         public int Id { get; set; }
-   // [Display (Name="Organization")]
+   [Display (Name="Organization")]
         public int OrganizationId { get; set; }
         public string Name { get; set; }
         public string ConatactNo { get; set; }
@@ -37,6 +37,9 @@ namespace OnlineExam.App.Models
         public List<SelectListItem> BatchSelectListItems { get; set; }
         public List<SelectListItem> CityListItemList { get; set; }
         public List<SelectListItem> CountryListItem { get; set; }
-        public List<Trainer> TrainerList { get; set; } 
+        public List<Trainer> TrainerList { get; set; }
+
+        public int BatchId { get; set; }
+        public int CourseId { get; set; }
     }
 }

@@ -42,7 +42,7 @@
                     <div class="form-group form-row">
                         @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new {@class = "control-label col-md-2"})
                         <div class="col-md-10">
-                            @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, new {@class = "form-control",})
+                            @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems,"--Select--", new {@class = "form-control",})
                             @Html.ValidationMessageFor(c => c.OrganizationId, null, new {@class = "text-danger"})
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="form-group form-row">
                         <h7 class="control-label col-md-2">Batch</h7>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(c => c.BatchId, Model.BatchSelectListItems, new {@class = "form-control",})
+                            @Html.DropDownListFor(c => c.BatchId, Model.BatchSelectListItems,"--Select--", new {@class = "form-control",})
                             @Html.ValidationMessageFor(c => c.BatchId, null, new { @class = "text-danger" })
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                     <div class="form-group form-row">
                         <h7 class="control-label col-md-2">Course</h7>
                         <div class="col-md-10">
-                            @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, new { @class = "form-control", })
+                            @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, "--Select--", new { @class = "form-control", })
                             @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
                         </div>
                     </div>

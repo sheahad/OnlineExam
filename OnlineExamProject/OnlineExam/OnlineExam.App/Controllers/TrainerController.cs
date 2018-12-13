@@ -49,6 +49,20 @@ namespace OnlineExam.App.Controllers
         [HttpPost]
         public ActionResult Save(TrainerCreateViewModel model)
         {
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.BatchSelectListItems = _batchManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.BatchNo }).ToList();
+
+            model.CourseSelectListItems = _coursManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Code }).ToList();
+
+            model.CityListItemList = _cityManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.CountryListItem = _countryManager.GetAll()
+         .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
             
             try
             {
