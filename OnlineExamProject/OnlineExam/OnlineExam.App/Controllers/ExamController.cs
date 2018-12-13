@@ -49,6 +49,11 @@ namespace OnlineExam.App.Controllers
         [HttpPost]
         public ActionResult Save(ExamCreateViewModel model)
         {
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.CourseSelectListItems = _coursManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Code }).ToList();
 
             //ViewBag.UserName = User.Identity.Name;
             try

@@ -13,7 +13,7 @@ namespace OnlineExam.App.Controllers
 {
     public class TrainerController : Controller
     {
-         TrainerManager _trainerManager = new TrainerManager();
+        TrainerManager _trainerManager = new TrainerManager();
         OrganizationManager _organizationManager=new OrganizationManager();
         BatchManager _batchManager=new BatchManager();
         CoursManager _coursManager=new CoursManager();

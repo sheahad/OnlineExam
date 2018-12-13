@@ -189,6 +189,7 @@
     <Compile Include="Controllers\OrganizationController.cs" />
     <Compile Include="Controllers\ParticipantsController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\QuistionAnswerController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\TrainerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,7 +200,7 @@
     <Compile Include="Models\ExamCreateViewModel.cs" />
     <Compile Include="Models\OrganizationCreateViewModel.cs" />
     <Compile Include="Models\ParticipantCreateViewModel.cs" />
-    <Compile Include="Models\QuestionCreateViewModel.cs" />
+    <Compile Include="Models\QuestionAnswerCreateViewModel.cs" />
     <Compile Include="Models\ResultCreateViewModel.cs" />
     <Compile Include="Models\TrainerCreateViewModel.cs" />
     <Compile Include="Models\UserLoginViewModel.cs" />
@@ -252,6 +253,7 @@
     <Content Include="Views\Shared\_LayoutLogIn.cshtml" />
     <Content Include="Views\Course\CourseInformation.cshtml" />
     <Content Include="Views\Trainer\Search.cshtml" />
+    <Content Include="Views\QuistionAnswer\Save.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
