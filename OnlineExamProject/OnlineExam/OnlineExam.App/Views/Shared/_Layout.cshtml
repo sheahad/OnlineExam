@@ -7,10 +7,10 @@
     <title>Online Exam</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="~/theme/assets/images/icon/logo.png">
-    
+
 
     <link href="~/theme/assets/css/bootstrap.min.css" rel="stylesheet" />
-    
+
     <link href="~/theme/assets/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/theme/assets/css/themify-icons.css" rel="stylesheet" />
     <link href="~/theme/assets/css/metisMenu.css" rel="stylesheet" />
@@ -52,20 +52,16 @@
                         <ul class="metismenu" id="menu">
                             <li class="active">
                                 @*<a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>*@
-                                <ul class="collapse">
-                                    
-                                    
-                                
-                                </ul>
+                                <ul class="collapse"></ul>
                             </li>
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true">
                                     <i class="ti-layout-sidebar-left"></i><span>
-                                       User
+                                        User
                                     </span>
                                 </a>
                                 <ul class="collapse">
-                                    
+
                                     <li><a href="#">Create User</a></li>
                                 </ul>
                             </li>
@@ -76,7 +72,7 @@
                                     <li><a href="linechart.html"> View</a></li>
                                     <li><a href="piechart.html"> Search</a></li>
 
-                                    
+
                                 </ul>
                             </li>
 
@@ -85,7 +81,7 @@
                                 <ul class="collapse">
                                     <li><a href="~/Course/Save"> Entry</a></li>
                                     <li><a href="linechart.html"> View</a></li>
-                                    <li><a href="~/Course/CourseInformation"> Search</a></li>
+                                    <li><a href="~/Course/CourseView"> Search</a></li>
                                 </ul>
                             </li>
 
@@ -117,14 +113,6 @@
                                     <li><a href="piechart.html"> Search</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Quistion Answer Entry</span></a>
-                                <ul class="collapse">
-                                    <li><a href="~/QuistionAnswer/Save"> Entry</a></li>
-                                   
-                                </ul>
-                            </li>
-
 
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>UI Features</span></a>
@@ -223,59 +211,55 @@
         </div>
         <!-- sidebar menu area end -->
         <!-- main content area start -->
-    <div class="main-content">
-        <!-- header area start -->
-        @*<div class="header-area">
-                <div class="row align-items-center">
-                    <!-- nav and search button -->
-                    <div class="col-md-6 col-sm-8 clearfix">
-                        <div class="search-box pull-left">
-                            <form action="#">
-                                <input type="text" name="search" placeholder="Search..." required>
-                                <i class="ti-search"></i>
-                            </form>
+        <div class="main-content">
+            <!-- header area start -->
+            @*<div class="header-area">
+                    <div class="row align-items-center">
+                        <!-- nav and search button -->
+                        <div class="col-md-6 col-sm-8 clearfix">
+                            <div class="search-box pull-left">
+                                <form action="#">
+                                    <input type="text" name="search" placeholder="Search..." required>
+                                    <i class="ti-search"></i>
+                                </form>
+                            </div>
                         </div>
+                        <!-- profile info & task notification -->
+
                     </div>
-                    <!-- profile info & task notification -->
-                    
-                </div>
-            </div>*@
-        <!-- header area end -->
-        <!-- page title area start -->
-        @*<div class="page-title-area">
-                <div class="row align-items-center">
-                    <div class="col-sm-6">
-                        <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Dashboard</h4>
-                            <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Home</a></li>
-                                <li><span>Dashboard</span></li>
-                            </ul>
+                </div>*@
+            <!-- header area end -->
+            <!-- page title area start -->
+            @*<div class="page-title-area">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <div class="breadcrumbs-area clearfix">
+                                <h4 class="page-title pull-left">Dashboard</h4>
+                                <ul class="breadcrumbs pull-left">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><span>Dashboard</span></li>
+                                </ul>
+                            </div>
                         </div>
+
                     </div>
-                    
-                </div>
-            </div>*@
-        <!-- page title area end -->
-        <div class="main-content-inner">
+                </div>*@
+            <!-- page title area end -->
+            <div class="main-content-inner">
 
-            <!-- sales report area start -->
-            @RenderBody()
+                <!-- sales report area start -->
+                @RenderBody()
 
-            <!-- sales report area end -->
-            <!-- overview area start -->
-
-            <!-- overview area end -->
-            <!-- market value area start -->
-
-            <!-- market value area end -->
-            <!-- row area start -->
-
-            <!-- row area end -->
-
-            <!-- row area start-->
+                <!-- sales report area end -->
+                <!-- overview area start -->
+                <!-- overview area end -->
+                <!-- market value area start -->
+                <!-- market value area end -->
+                <!-- row area start -->
+                <!-- row area end -->
+                <!-- row area start-->
+            </div>
         </div>
-    </div>
 
         <!-- main content area end -->
         <!-- footer area start-->
@@ -499,10 +483,10 @@
     <script src="~/theme/assets/js/pie-chart.js"></script>
     <!-- others plugins -->
     <script src="~/theme/assets/js/plugins.js"></script>
-   <script src="~/theme/assets/js/scripts.js"></script>
+    <script src="~/theme/assets/js/scripts.js"></script>
 
     <script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     @RenderSection("Scripts", required: false)
 
 </body>

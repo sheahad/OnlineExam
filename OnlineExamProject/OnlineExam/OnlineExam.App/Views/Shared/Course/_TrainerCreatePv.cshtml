@@ -1,0 +1,62 @@
+﻿
+@model OnlineExam.App.Models.CourseCreateViewModel
+
+
+
+@if (ViewBag.SMsg != null)
+{
+    <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+}
+@if (ViewBag.EMsg != null)
+{
+    <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+}
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="col-md-9">
+            <div>
+
+                <h6>Create trainer</h6>
+                <br />
+
+                <div class="form-horizontal">
+
+                    <div class="col-md-12">
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.TrainerId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(c => c.TrainerId, Model.TrainerListItems, "--Select--", new { @class = "form-control ", })
+                                @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group form-row">
+
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-success" />
+
+
+                            </div>
+
+                            <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                                     aria-valuemin="0" aria-valuemax="100" style="width: 70%">
+                                    <span class="sr-only">70% Complete</span>
+                                </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+
+</body>

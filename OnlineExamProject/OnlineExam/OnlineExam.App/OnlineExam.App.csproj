@@ -112,6 +112,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Project\Course\Course.js" />
     <Content Include="Scripts\Project\Course\CourseCreate.js" />
+    <Content Include="Scripts\Project\Course\CourseView.js" />
+    <Content Include="Scripts\Project\Course\TraninerCreate.js" />
     <Content Include="Scripts\Project\Organization\OrganizationCreate.js" />
     <Content Include="Scripts\Project\Participant\ParticipantCreate.js" />
     <Content Include="Scripts\Project\QuistionAnswer\QuistionAnswer.js" />
@@ -229,7 +231,6 @@
     <Content Include="Views\Course\Edit.cshtml" />
     <Content Include="Views\Course\Save.cshtml" />
     <Content Include="Views\Course\Search.cshtml" />
-    <Content Include="Views\Course\View.cshtml" />
     <Content Include="Views\Batch\Edit.cshtml" />
     <Content Include="Views\Batch\Save.cshtml" />
     <Content Include="Views\Batch\Search.cshtml" />
@@ -238,10 +239,10 @@
     <Content Include="Views\Trainer\Save.cshtml" />
     <Content Include="Views\Result\Search.cshtml" />
     <Content Include="Views\Result\View.cshtml" />
-    <Content Include="Views\Participants\Edit.cshtml" />
-    <Content Include="Views\Participants\Save.cshtml" />
-    <Content Include="Views\Participants\Search.cshtml" />
-    <Content Include="Views\Participants\View.cshtml" />
+    <Content Include="Views\Organization\Participants\Edit.cshtml" />
+    <Content Include="Views\Organization\Participants\Save.cshtml" />
+    <Content Include="Views\Organization\Participants\Search.cshtml" />
+    <Content Include="Views\Organization\Participants\View.cshtml" />
     <Content Include="Views\Exam\Edit.cshtml" />
     <Content Include="Views\Exam\Save.cshtml" />
     <Content Include="Views\Exam\Search.cshtml" />
@@ -255,6 +256,14 @@
     <Content Include="Views\Course\CourseInformation.cshtml" />
     <Content Include="Views\Trainer\Search.cshtml" />
     <Content Include="Views\QuistionAnswer\Save.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Course\CourseView.cshtml" />
+    <Content Include="Views\Shared\Course\_CourseCreatePv.cshtml" />
+    <Content Include="Views\Shared\Course\_TrainerCreatePv.cshtml" />
+    <Content Include="Views\Participants\Edit.cshtml" />
+    <Content Include="Views\Participants\Save.cshtml" />
+    <Content Include="Views\Participants\Search.cshtml" />
+    <Content Include="Views\Participants\View.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

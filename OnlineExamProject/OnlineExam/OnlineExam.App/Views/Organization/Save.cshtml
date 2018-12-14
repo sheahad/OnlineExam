@@ -6,6 +6,18 @@
 @section Scripts{
 
     <script src="~/Scripts/Project/Organization/OrganizationCreate.js"></script>
+<script type="text/javascript">
+    function ShowPreview(input) {
+        if (input.files && input.files[0]) {
+            var ImageDir = new FileReader();
+            ImageDir.onload = function (e) {
+                $('#impPrev').attr('src', e.target.result);
+            }
+            ImageDir.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
 }
 
 <!DOCTYPE html>
@@ -25,6 +37,7 @@
         <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
 
     }
+    
 </head>
 
 
@@ -81,7 +94,19 @@
 
                     @Html.LabelFor(c => c.Logo, htmlAttributes: new {@class = "control-label col-md-2"})
                     <div class="col-md-6">
-                        <input type="file" class="form-control" name="Logo">
+                        
+                                    <td>
+                                        Select Your File To Upload #:
+                                        <input type="file" name="ImageUpload" id="ImageUpload" onchange="ShowPreview(this)" />
+                                        <asp:Button ID="btnUpload" runat="server" Text="Upload" />
+                                    </td>
+                               
+                                <tr>
+                                    <td>
+                                        <asp:Image ID="impPrev" runat="server" Height="200px" />
+                                    </td>
+                                </tr>
+                           
                     </div>
 
                 </div>

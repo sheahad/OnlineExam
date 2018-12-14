@@ -93,5 +93,34 @@ namespace OnlineExam.App.Controllers
 
             return Json(false, JsonRequestBehavior.AllowGet);
         }
+       
+
+        public ActionResult CourseView()
+        {
+            return View();
+        }
+
+
+        public PartialViewResult GetCourseCreatePv()
+        {
+            var model = new CourseCreateViewModel();
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.Tags = _tagManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.TrainerSelectListItems = _trainerManager.GetAll().ToList();
+            return PartialView("Course/_CourseCreatePv",model);
+        }
+
+        public PartialViewResult GetTrainerCreatePV()
+        {
+            var model = new CourseCreateViewModel();
+            model.TrainerListItems = _trainerManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+            return PartialView("~/Views/Shared/Course/_TrainerCreatePv.cshtml", model);
+        }
+
 	}
 }

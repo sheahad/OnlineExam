@@ -27,6 +27,7 @@
 
     }
      
+   
 
 </head>
 
@@ -103,15 +104,14 @@
                         </div>
                     </div>
 
-<<<<<<< HEAD
-=======
+
                     @*<div class="form-group form-row">
                         @Html.LabelFor(c => c.Tag, htmlAttributes: new {@class = "control-label col-md-2"})
                         <div class="col-md-10">
                             <input type="text" value="Amsterdam,Washington" data-role="tagsinput"/>
                         </div>
                     </div>
->>>>>>> 71d186d93e1f7a5a72531f3d945d5561e2bb4719
+
 
                     <div class="form-group form-row">
                         @Html.LabelFor(c => c.Tag, htmlAttributes: new {@class = "control-label col-md-2"})
@@ -126,15 +126,14 @@
 
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Save" class="btn btn-success"/>
-<<<<<<< HEAD
+
                             
                             </div>
-=======
+
                             @*<div class="progress-bar" role="progressbar" aria-valuenow="70"
                                  aria-valuemin="0" aria-valuemax="100" style="width: 70%">
                                 <span class="sr-only">70% Complete</span>
                             </div>*@
->>>>>>> 71d186d93e1f7a5a72531f3d945d5561e2bb4719
                         </div>
                     </div>
 
@@ -151,6 +150,18 @@
 </html>
 @section Scripts
 {
+@*<script type="text/javascript">
+    function ShowPreview(input) {
+        if (input.files && input.files[0]) {
+            var ImageDir = new FileReader();
+            ImageDir.onload = function (e) {
+                $('#impPrev').attr('src', e.target.result);
+            }
+            ImageDir.readAsDataURL(input.files[0]);
+        }
+    }
+</script>*@
+  
     @*<script>
     var citynames = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),

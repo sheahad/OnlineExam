@@ -1,0 +1,23 @@
+﻿@using System.Collections.Specialized
+
+@{
+    ViewBag.Title = "CourseView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<button type="button" class="btn btn-info" id="CourseCreateButton"> Basic Info</button>
+<button type="button" class="btn btn-info" id="TrainerCreateButton"> Trainer Create</button>
+
+<h3>CourseView</h3>
+
+<div>
+    
+    <div id="PartialTrainerLoadDiv"></div>
+</div>
+
+
+
+
+@section Scripts{
+
+<script src="~/Scripts/Project/Course/TraninerCreate.js"></script>
+}

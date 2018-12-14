@@ -34,11 +34,14 @@ namespace OnlineExam.App.Models
         public string Tag { get; set; }
         public string TagId { get; set; }
 
+        public string TrainerId { get; set; }
+
         public List<SelectListItem> Tags { get; set; }
 
         public List<SelectListItem> OrganizationSelectListItems { get; set; }
         public List<CourseTag> CourseTags { get; set; }
 
-        public List<Trainer> TrainerSelectListItems { get; set; } 
+        public List<Trainer> TrainerSelectListItems { get; set; }
+        public List<SelectListItem> TrainerListItems { get; set; }
     }
 }
