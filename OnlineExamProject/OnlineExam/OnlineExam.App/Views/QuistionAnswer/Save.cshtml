@@ -1,4 +1,5 @@
-﻿@model OnlineExam.App.Models.QuestionAnswerCreateViewModel
+﻿@using System.Xml
+@model OnlineExam.App.Models.QuestionAnswerCreateViewModel
 @{
     ViewBag.Title = "Create Quistion Answer";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +16,8 @@
 </head>
 
 
-<html>
+
+
 <body>
     @if (ViewBag.SMsg != null)
     {
@@ -36,125 +38,73 @@
                     <h6>Create Quistion Answer</h6>
                     <br />
                 </div>
-                
-                
+
+
                 <div class="form-group row">
                     <div class="col-md-6">
                         <div class="form-group row">
-                            
                             @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, "--Select--", new { @class = "form-control", })
+                                @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, "...Select...", new { @class = "form-control", })
+                                @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group row">
                             @Html.LabelFor(c => c.CourseId, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, "--Select--", new { @class = "form-control", })
+                                @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, "...Select...", new { @class = "form-control", })
+                                @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            @Html.LabelFor(c => c.ExamId, htmlAttributes: new {@class = "control-label col-md-4"})
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(c => c.ExamId, Model.ExamSelectListItems, "...Select...", new {@class = "form-control",})
+                                @Html.ValidationMessageFor(c => c.ExamId, null, new {@class = "text-danger"})
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-2">Question:</div>
+
+                            @Html.LabelFor(c => c.Mark, htmlAttributes: new {@class = "control-label col-md-1"})
+
+
+                            @Html.TextBoxFor(c => c.Mark, htmlAttributes: new {@class = "control-label col-md-3"})
+
+
+                            @Html.LabelFor(c => c.Order, htmlAttributes: new {@class = "control-label col-md-1"})
+
+
+                            @Html.TextBoxFor(c => c.Order, htmlAttributes: new {@class = "control-label col-md-3"})
+
+
+                        </div>
+                        <div class="form-group row">
+                            
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(c => c.Question, new { @class = "form-control", @rows = "3" })
                                 @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
                             </div>
                         </div>
                         <div class="form-group row">
-                            @Html.LabelFor(c => c.ExamId, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <label>Option Type</label>
                             <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.ExamId, Model.ExamSelectListItems, "--Select--", new { @class = "form-control", })
-                                @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
+                                <select>
+                                    <option>...Select...</option>
+                                    <option>MCQ Single Answer(s)</option>
+                                    <option>MCQ Multiple Answer(s)</option>
+                                </select>
+                                @Html.ValidationMessageFor(c => c.ExamId, null, new { @class = "text-danger" })
                             </div>
                         </div>
-                        
-                        <div class="form-group row">
-                            @Html.LabelFor(c => c.Question1, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-6">
-                                @Html.TextAreaFor(c => c.Question1, new { @class = "form-control", @rows = "3" })
-                                @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
-                            </div>
-                        </div>
-                        
-
-
                     </div>
-                    <div class="col-md-6">
-                        
-
+                    <div class="col-md-6"></div>
                     </div>
-                </div>
-                
-                
-             
-
-                <div class="row">
-                    <div class="left-sidebar col-sm-6">
-                        <div class="form-horizontal">
-
-
-                            <div class="form-group form-row">
-                                
-                                <div class="col-md-10">
-                                    
-                                    @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-
-
-                            <div class="form-group form-row">
-                                <h7 class="control-label col-md-2">Course</h7>
-                                <div class="col-md-10">
-                                    
-                                    @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
-
-                                </div>
-                            </div>
-                            <div class="form-group form-row">
-                                <h7 class="control-label col-md-2">Exam</h7>
-                                <div class="col-md-10">
-                                    
-                                    @Html.ValidationMessageFor(c => c.ExamId, null, new { @class = "text-danger" })
-
-                                </div>
-
-                                <div class="form-group form-row">
-                                    <h6>Quistion</h6>
-                                    <br />
-                                    <br />
-                                    @Html.LabelFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-5" })
-                                    <div class="col-md-4">
-                                        @Html.TextBoxFor(c => c.Mark, null, new { @class = "form-control col-md-10", })
-                                        @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
-                                    </div>
-                                </div>
-                                <div class="form-group form-row">
-                                    @Html.LabelFor(c => c.Order, htmlAttributes: new { @class = "control-label col-md-5" })
-                                    <div class="col-md-4">
-                                        @Html.TextBoxFor(c => c.Order, null, new { @class = "form-control col-md-10", })
-                                        @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    @Html.LabelFor(c => c.Question1, htmlAttributes: new { @class = "control-label col-md-4" })
-                                    <div class="col-md-8">
-                                        @Html.TextAreaFor(c => c.Question1, new { @class = "form-control", @rows = "3" })
-                                        @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-6"></div>
-                                <div class=" col-md-2 ">
-                                    <input type="submit" value="Save" class="btn btn-success float-right" />
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="col-sm-6">
-
-                    </div>
-                </div>
-
             </div>
         }
     </div>
 </body>
 </html>
+@section scripts{
+<script src="~/Scripts/Project/QuistionAnswer/QuistionAnswer.js"></script>
+}

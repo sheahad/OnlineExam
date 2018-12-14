@@ -13,6 +13,7 @@ namespace OnlineExam.App.Controllers
         OrganizationManager _organizationManager = new OrganizationManager();
         CoursManager _coursManager = new CoursManager();
         ExamManager _examManager = new ExamManager();
+        QuestionAnswerCreateViewModel model = new QuestionAnswerCreateViewModel();
         
         //
         // GET: /QuistionAnswer/
@@ -46,5 +47,22 @@ namespace OnlineExam.App.Controllers
 
             return View(model);
         }
-	}
+
+        public JsonResult GetCourseByOrganizationId(int organizationId)
+        {
+            var dataList = _coursManager.GetAll();
+            dataList = dataList.Where(c => c.OrganizationId == organizationId).ToList();
+            var jsonResult = dataList.Select(c => new {Id= c.Id, Name= c.Name });
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+
+        }
+        public JsonResult GetExamByCourseId(int courseId)
+        {
+            var dataList = _examManager.GetAll();
+            dataList = dataList.Where(c => c.CourseId == courseId).ToList();
+            var jsonResult = dataList.Select(c => new { Id = c.Id, Name = c.Code });
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+
+        }
+    }
 }

@@ -114,6 +114,7 @@
     <Content Include="Scripts\Project\Course\CourseCreate.js" />
     <Content Include="Scripts\Project\Organization\OrganizationCreate.js" />
     <Content Include="Scripts\Project\Participant\ParticipantCreate.js" />
+    <Content Include="Scripts\Project\QuistionAnswer\QuistionAnswer.js" />
     <Content Include="theme\assets\css\bootstrap.min.css" />
     <Content Include="theme\assets\css\default-css.css" />
     <Content Include="theme\assets\css\font-awesome.min.css" />
