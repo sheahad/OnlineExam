@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812130727095_Update.cs" />
-    <Compile Include="Migrations\201812130727095_Update.Designer.cs">
-      <DependentUpon>201812130727095_Update.cs</DependentUpon>
+    <Compile Include="Migrations\201812140412042_ADD.cs" />
+    <Compile Include="Migrations\201812140412042_ADD.Designer.cs">
+      <DependentUpon>201812140412042_ADD.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812130727095_Update.resx">
-      <DependentUpon>201812130727095_Update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812140412042_ADD.resx">
+      <DependentUpon>201812140412042_ADD.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
