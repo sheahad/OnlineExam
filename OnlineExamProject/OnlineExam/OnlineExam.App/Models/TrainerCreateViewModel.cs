@@ -41,5 +41,9 @@ namespace OnlineExam.App.Models
 
         public int BatchId { get; set; }
         public int CourseId { get; set; }
+        public List<AssignBatchTrainer> AssignBatchTrainers { get; set; }
+        public bool Lead { get; set; }
+        public List<AssignCourseTrainer> AssignCourseTrainers { get; set; }
+
     }
 }

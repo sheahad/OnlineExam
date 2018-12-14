@@ -47,21 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812110506540_001.cs" />
-    <Compile Include="Migrations\201812110506540_001.Designer.cs">
-      <DependentUpon>201812110506540_001.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812120649223_update_orga.cs" />
-    <Compile Include="Migrations\201812120649223_update_orga.Designer.cs">
-      <DependentUpon>201812120649223_update_orga.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812120816114_Oraga_update.cs" />
-    <Compile Include="Migrations\201812120816114_Oraga_update.Designer.cs">
-      <DependentUpon>201812120816114_Oraga_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201812121636295_update-all.cs" />
-    <Compile Include="Migrations\201812121636295_update-all.Designer.cs">
-      <DependentUpon>201812121636295_update-all.cs</DependentUpon>
+    <Compile Include="Migrations\201812130727095_Update.cs" />
+    <Compile Include="Migrations\201812130727095_Update.Designer.cs">
+      <DependentUpon>201812130727095_Update.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,17 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812110506540_001.resx">
-      <DependentUpon>201812110506540_001.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812120649223_update_orga.resx">
-      <DependentUpon>201812120649223_update_orga.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812120816114_Oraga_update.resx">
-      <DependentUpon>201812120816114_Oraga_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201812121636295_update-all.resx">
-      <DependentUpon>201812121636295_update-all.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812130727095_Update.resx">
+      <DependentUpon>201812130727095_Update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

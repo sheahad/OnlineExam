@@ -38,8 +38,8 @@ namespace OnlineExam.App
                 cfg.CreateMap<Participant, ParticipantCreateViewModel>();
 
                 //
-                cfg.CreateMap<QuestionCreateViewModel, Question>();
-                cfg.CreateMap<Question, QuestionCreateViewModel>();
+                cfg.CreateMap<QuestionAnswerCreateViewModel, Question>();
+                cfg.CreateMap<Question, QuestionAnswerCreateViewModel>();
 
                 ////
                 //cfg.CreateMap<ResultCreateViewModel, Result>();

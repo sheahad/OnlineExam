@@ -13,7 +13,7 @@ namespace OnlineExam.App.Controllers
 {
     public class TrainerController : Controller
     {
-         TrainerManager _trainerManager = new TrainerManager();
+        TrainerManager _trainerManager = new TrainerManager();
         OrganizationManager _organizationManager=new OrganizationManager();
         BatchManager _batchManager=new BatchManager();
         CoursManager _coursManager=new CoursManager();
@@ -69,6 +69,13 @@ namespace OnlineExam.App.Controllers
                 if (ModelState.IsValid)
                 {
                     var trainer = Mapper.Map<Trainer>(model);
+                    trainer.AssignBatchTrainers.Add(
+                        new AssignBatchTrainer(){BatchId = model.BatchId, TrainerId = trainer.Id, CreateById = model.CreateById, CreateDate = model.CreateDate, Status = model.Status});
+                    trainer.AssignCourseTrainers.Add(
+                        new AssignCourseTrainer() { CourseId = model.CourseId, TrainerId = trainer.Id, Lead = model.Lead, CreateById = model.CreateById, CreateDate = model.CreateDate, Status = model.Status }
+                        );
+                  
+
                     bool isSaved = _trainerManager.Add(trainer);
 
                     if (isSaved)
