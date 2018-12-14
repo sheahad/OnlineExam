@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using OnlineExam.Models.Models;
 
 namespace OnlineExam.App.Models
 {
@@ -43,10 +44,13 @@ namespace OnlineExam.App.Models
         public int CreateById { get; set; }
         public DateTime CreateDate { get; set; }
 
+        
         public List<SelectListItem> OrganizationSelectListItems { get; set; }
         public List<SelectListItem> CourseSelectListItems { get; set; }
         public List<SelectListItem> ExamSelectListItems { get; set; }
 
+        public Answer Answer { get; set; }
+        public LinkedList<Answer> Answers { get; set; }
 
 
 

@@ -57,45 +57,60 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            @Html.LabelFor(c => c.ExamId, htmlAttributes: new {@class = "control-label col-md-4"})
+                            @Html.LabelFor(c => c.ExamId, htmlAttributes: new { @class = "control-label col-md-4" })
                             <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.ExamId, Model.ExamSelectListItems, "...Select...", new {@class = "form-control",})
-                                @Html.ValidationMessageFor(c => c.ExamId, null, new {@class = "text-danger"})
+                                @Html.DropDownListFor(c => c.ExamId, Model.ExamSelectListItems, "...Select...", new { @class = "form-control", })
+                                @Html.ValidationMessageFor(c => c.ExamId, null, new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-md-2">Question:</div>
 
-                            @Html.LabelFor(c => c.Mark, htmlAttributes: new {@class = "control-label col-md-1"})
+                            @Html.LabelFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-1" })
 
 
-                            @Html.TextBoxFor(c => c.Mark, htmlAttributes: new {@class = "control-label col-md-3"})
+                            @Html.TextBoxFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-3" })
 
 
-                            @Html.LabelFor(c => c.Order, htmlAttributes: new {@class = "control-label col-md-1"})
+                            @Html.LabelFor(c => c.Order, htmlAttributes: new { @class = "control-label col-md-1" })
 
 
-                            @Html.TextBoxFor(c => c.Order, htmlAttributes: new {@class = "control-label col-md-3"})
+                            @Html.TextBoxFor(c => c.Order, htmlAttributes: new { @class = "control-label col-md-3" })
 
 
                         </div>
                         <div class="form-group row">
-                            
                             <div class="col-md-12">
                                 @Html.TextAreaFor(c => c.Question, new { @class = "form-control", @rows = "3" })
                                 @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
                             </div>
                         </div>
+
                         <div class="form-group row">
+                            
                             <label>Option Type</label>
                             <div class="col-md-6">
-                                <select>
-                                    <option>...Select...</option>
-                                    <option>MCQ Single Answer(s)</option>
-                                    <option>MCQ Multiple Answer(s)</option>
+                                <select id="questionTypeSelect" >
+                                    <option value="0">...Select...</option>
+                                    <option value="1">MCQ Single Answer(s)</option>
+                                    <option value="2">MCQ Multiple Answer(s)</option>
                                 </select>
-                                @Html.ValidationMessageFor(c => c.ExamId, null, new { @class = "text-danger" })
                             </div>
+                            
+                        </div>
+
+                        <div class="form-group solid" id="answerDiv">
+                            <div>
+                                <label name="" class="col-md-5">Answer Option:</label>
+
+                            </div>
+                            <div>
+                                <input type="text" id="" name="" class="col-md-1                                                                                                                                                                                                                                    ">
+                                <span id="mcqDiv" class="col-md-1"></span>
+                                <input type="text" id="" name="" class="col-md-8">
+                                <button type="submit" name="Add" class="btn btn-xs col-md-1   fa fa-plus"></button>
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-6"></div>

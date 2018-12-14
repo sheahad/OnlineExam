@@ -43,3 +43,23 @@ $("#CourseId").change(function () {
         }
     });
 });
+
+$("#answerDiv").hide();
+
+$("#questionTypeSelect").change(function () {
+    var questionType = $(this).val();
+    var textArea = "";
+    if (questionType == "1") {
+        textArea = "<input type='Radio' Name='rdoMcq' Value=''/>";
+        $("#mcqDiv").html(textArea);
+       $("#answerDiv").show();
+    }else if (questionType == "2") {
+        textArea = "<input type='Checkbox' name='chkMcq' value=''/>";
+        $("#mcqDiv").html(textArea);
+        $("#answerDiv").show();
+    }
+    else if (questionType == "0") {
+        $("#mcqDiv").html("");
+        $("#answerDiv").hide();
+    }
+});
