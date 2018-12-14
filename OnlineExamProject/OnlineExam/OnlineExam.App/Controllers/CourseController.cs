@@ -14,6 +14,7 @@ namespace OnlineExam.App.Controllers
     {
         CoursManager _courseManager = new CoursManager();
         OrganizationManager _organizationManager=new OrganizationManager();
+        TrainerManager _trainerManager=new TrainerManager();
 
         TagManager _tagManager=new TagManager();
         public string message="";
@@ -28,6 +29,8 @@ namespace OnlineExam.App.Controllers
 
             model.Tags=_tagManager.GetAll()
                 .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.TrainerSelectListItems = _trainerManager.GetAll().ToList();
 
             return View(model);
              
@@ -61,6 +64,20 @@ namespace OnlineExam.App.Controllers
                 message = "Saved Failed!";
                 ViewBag.EMsg = message;
             }
+            return View(model);
+        }
+
+        public ActionResult CourseInformation()
+        {
+            var model = new CourseCreateViewModel();
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.Tags = _tagManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+            
+            model.TrainerSelectListItems = _trainerManager.GetAll().ToList();
+
             return View(model);
         }
 

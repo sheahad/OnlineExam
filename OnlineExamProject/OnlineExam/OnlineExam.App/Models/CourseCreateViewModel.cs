@@ -37,7 +37,8 @@ namespace OnlineExam.App.Models
         public List<SelectListItem> Tags { get; set; }
 
         public List<SelectListItem> OrganizationSelectListItems { get; set; }
-        public List<CourseTag> CourseTags { get; set; } 
+        public List<CourseTag> CourseTags { get; set; }
 
+        public List<Trainer> TrainerSelectListItems { get; set; } 
     }
 }
