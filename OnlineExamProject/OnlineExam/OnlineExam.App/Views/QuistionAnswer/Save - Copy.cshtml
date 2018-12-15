@@ -19,12 +19,12 @@
     <div>
         @if (ViewBag.SMsg != null)
         {
-            <h5 style="color: green; font-weight: bold; text-align:center">@ViewBag.SMsg </h5>
+            <h2 style="color: green; font-weight: bold; text-align:center">@ViewBag.SMsg </h2>
         }
 
         @if (ViewBag.EMsg != null)
         {
-            <h5 style="color: red; font-weight: bold; text-align: center">@ViewBag.EMsg </h5>
+            <h3 style="color: red; font-weight: bold; text-align: center">@ViewBag.EMsg </h3>
         }
     </div>
 
@@ -75,7 +75,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-md-12">
-                                                @Html.TextAreaFor(c => c.Question1, new {@class = "form-control", @rows = "3"})
+                                                @Html.TextAreaFor(c => c.Question, new {@class = "form-control", @rows = "3"})
                                                 @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@
                                         <div class="form-group row col-md-12">
                                             @Html.Label("Option Type", new{@class="col-md-4"})
                                             <div class="col-md-8">
-                                                @Html.DropDownList("QuestionType", MyList, new { @class = "btn btn-md " })
+                                                @Html.DropDownList("questionTypeSelect", MyList, new { @class = "btn btn-md " })
                                             </div>
 
                                         </div>
@@ -111,8 +111,7 @@
                                         <div class="form-group solid" id="answerDiv">
                                             <div>
                                                 <input type="text" id="tableAOrder" name="tableAOrder" class="col-md-1" />
-                                                <input type="checkbox" id="chkMcq" name="tableMcq" value="true" class="col-md-1">
-                                                <input type="radio" id="rdoMcq" name="tableMcq" value="true" class="col-md-1">
+                                                <span id="mcqDiv" class="col-md-1"></span>
                                                 <input type="text" id="tableAnswer1" name="tableAnswer1" class="col-md-8">
                                                 <input type="button" class="btn btn-xs col-md-1   fa fa-plus" id="AddButton" value="+" />
                                             </div>
@@ -127,7 +126,7 @@
                                                         <div class="panel-body">
                                                             <table class=" table table-bordered table-hover table-striped table-responsive">
                                                                 <thead>
-                                                                    <tr style="background-color:lightblue; color: black; font-weight: bold">
+                                                                    <tr style="background-color:aquamarine; color: black; font-weight: bold">
                                                                         <td >Sl</td>
                                                                         <td ></td>
                                                                         <td class="col-4">Options</td>

@@ -37,8 +37,8 @@ namespace OnlineExam.App.Models
         [Display(Name = "Exam")]
         public int ExamId { get; set; }
         public double Mark { get; set; }
-        public int Order { get; set; }
-        public string Question { get; set; }
+        public int QOrder { get; set; }
+        public string Question1 { get; set; }
         public string QuestionType { get; set; }
         public string Status { get; set; }
         public int CreateById { get; set; }
@@ -49,8 +49,7 @@ namespace OnlineExam.App.Models
         public List<SelectListItem> CourseSelectListItems { get; set; }
         public List<SelectListItem> ExamSelectListItems { get; set; }
 
-        public Answer Answer { get; set; }
-        public LinkedList<Answer> Answers { get; set; }
+        public ICollection<Answer> Answers { get; set; }
 
 
 

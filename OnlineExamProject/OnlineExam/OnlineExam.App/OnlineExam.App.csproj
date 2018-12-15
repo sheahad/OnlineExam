@@ -264,6 +264,7 @@
     <Content Include="Views\Participants\Save.cshtml" />
     <Content Include="Views\Participants\Search.cshtml" />
     <Content Include="Views\Participants\View.cshtml" />
+    <Content Include="Views\QuistionAnswer\Save - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

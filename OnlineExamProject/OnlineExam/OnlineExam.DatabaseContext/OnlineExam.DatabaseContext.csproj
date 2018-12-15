@@ -47,9 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812140431196_add.cs" />
-    <Compile Include="Migrations\201812140431196_add.Designer.cs">
-      <DependentUpon>201812140431196_add.cs</DependentUpon>
+    <Compile Include="Migrations\201812151354102_001.cs" />
+    <Compile Include="Migrations\201812151354102_001.Designer.cs">
+      <DependentUpon>201812151354102_001.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812151905410_Ans_modifyed.cs" />
+    <Compile Include="Migrations\201812151905410_Ans_modifyed.Designer.cs">
+      <DependentUpon>201812151905410_Ans_modifyed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +69,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812140431196_add.resx">
-      <DependentUpon>201812140431196_add.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812151354102_001.resx">
+      <DependentUpon>201812151354102_001.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812151905410_Ans_modifyed.resx">
+      <DependentUpon>201812151905410_Ans_modifyed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

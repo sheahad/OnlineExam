@@ -16,7 +16,7 @@ namespace OnlineExam.Models.Models
         public int CourseId { get; set; }
         public int ExamId { get; set; }
         public double Mark { get; set; }
-        public int Order { get; set; }
+        public int QOrder { get; set; }
         public string Question1 { get; set; }
         public string QuestionType { get; set; }
         public string Status { get; set; }
