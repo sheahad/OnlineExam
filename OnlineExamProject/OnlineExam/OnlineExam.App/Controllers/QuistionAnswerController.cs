@@ -100,5 +100,14 @@ namespace OnlineExam.App.Controllers
             return Json(jsonResult, JsonRequestBehavior.AllowGet);
 
         }
+
+        public JsonResult GetQuestionByXxamId(int examId)
+        {
+            var dataList = _questionManager.GetAll();
+            dataList = dataList.Where(c => c.ExamId == examId).ToList();
+            var jsonResult = dataList.Select(c => new {c.QOrder, c.Question1, c.QuestionType, Option = c.Answers });
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+
+        }
     }
 }

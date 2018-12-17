@@ -44,6 +44,48 @@ $("#CourseId").change(function () {
     });
 });
 
+
+$("#ExamId").change(function () {
+    var examId = $(this).val();
+    // Variable: value
+    var params = { examId: examId }
+    $.ajax({
+        type: "POST",
+        //controller/Action 
+        url: "../../QuistionAnswer/GetQuestionByXxamId",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(params),
+        success: function (response) {
+            if (response !== undefined && response !== null && response !== "") {
+                $("#qsn").empty();
+                //$("#qsn").append('<option>---Select---</option>');
+                $.each(response, function (k, v) {
+                    var order = "<td>" +v.QOrder +"</td>";
+                    var qsn = "<td class='col-md-3'>" + v.Question1 + "</td>";
+                    var disqsntype = "";
+                    if (v.QuestionType ==1)
+                        disqsntype = "<input type='radio' checked disabled readonly />";
+
+                    if (v.QuestionType == 2)
+                        disqsntype = "<input type='checkbox' checked disabled readonly />";
+
+                    var qsntype = "<td class='col-md-2'>" + disqsntype + "</td>";
+
+                    var options = "<td class='col-md-1'>"+v.Option+"</td>";
+                    var action = "<td class='col-md-4'> <input type='button' name='viewRow' value='View' class='btn btn-success btn-xs' /><input type='button' name='editRow' value='Edit' class='btn btn-block btn-xs' /><input type='button' name='deleteRow' value='Delete' class='btn btn-danger btn-xs' /></td>";
+                    
+                    //$("#qsn").append("<option value='" + v.Id + "'>" + v.Name + "</option>");
+                    $("#qsn").append("<tr>" + order + qsn + qsntype + options + action + "</tr>");
+                    $("#QOrder").val(v.QOrder + 1);
+                });
+            }
+        }
+    });
+});
+
+
+/* ************************ ************************** ******************** ********************** */
+/* ************************ ************************** ******************** ********************** */
 $("#answerDiv").hide();
 $("#chkMcq").hide();
 $("#rdoMcq").hide();
@@ -71,7 +113,7 @@ $("#QuestionType").change(function () {
         $("#answerDiv").hide();
     }
 });
-
+/* ************************ ************************** ******************** ********************** */
 /////////////////////////Details//////////////////////////////////
 $("#AddButton").click(function () {
     createRowForPurchase();
