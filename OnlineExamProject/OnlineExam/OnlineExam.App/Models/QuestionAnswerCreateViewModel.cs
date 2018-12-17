@@ -50,6 +50,7 @@ namespace OnlineExam.App.Models
         public List<SelectListItem> ExamSelectListItems { get; set; }
 
         public ICollection<Answer> Answers { get; set; }
+        public ICollection<Question> Questions { get; set; }
 
 
 

@@ -134,6 +134,7 @@
                                                                         <td ></td>
                                                                         <td class="col-4">Options</td>
                                                                         <td class="col-2">Action</td>
+                                                                        <td></td>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody id="AnswersTable">
@@ -181,11 +182,41 @@
                 <div class="col-md-6">
                     <div class="panel-group panel-primary">
                         <div class="panel-heading">
-
                             <h4 style="text-align: center"> Quistions</h4>
                         </div>
                         <div class="panel-body">
-                            <h6> Quistions</h6>
+                            <table class=" table table-bordered table-hover table-striped table-responsive">
+                                <thead>
+                                    <tr style="background-color:lightblue; color: black; font-weight: bold">
+                                        <th >Order</th>
+                                        <th class="col-4">Quistion</th>
+                                        <th class="col-2">Option Type</th>
+                                        <th class="col-2">Options</th>
+                                        <th class="col-2">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @if (Model != null && Model.Questions != null && Model.Questions.Count() > 0)
+                                    {
+                                        
+                                        foreach (var qsn in Model.Questions)
+                                        {
+                                            <tr>
+                                                <td>@qsn.QOrder</td>
+                                                <td class="col-3">@qsn.Question1</td>
+                                                <td class="col-2">@qsn.QuestionType</td>
+                                                <td class="col-1">@*@qsn.Answers.Select(c=>c.Answer1).Count()*@</td>
+                                                <td class="col-4">
+                                                    <input type="button" name="viewRow" value="View" class="btn btn-success btn-xs" />
+                                                    <input type="button" name="editRow" value="Edit" class="btn btn-block btn-xs" />
+                                                    <input type="button" name="deleteRow" value="Delete" class="btn btn-danger btn-xs" />
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+
+                            </table>
                         </div>
 
                     </div>

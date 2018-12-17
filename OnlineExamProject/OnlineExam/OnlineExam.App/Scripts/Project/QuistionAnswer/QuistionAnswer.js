@@ -151,27 +151,7 @@ function getSelectedItem() {
 $(document).ready(function () {
 
     $("#AnswersTable").on('click', '.btnDelete', function () {
-        {
-            //Check Last Row Index
-            var index = $("#AnswersTable").children("tr").length;
-            var sl = index;
-
-            alert(sl);
-            ////For Model List<Property> Binding For MVC
-            //var indexTd = "<td style='display:none'><input type='hidden' id='Index" + index + "' name='Answers.Index' value='" + index + "' /> </td>";
-
-            ////For Serial No For UI
-            //var slTd = "<td id='Sl" + index + "'> " + (++sl) + " </td>";
-
-            ////Dispale & Send Data to MVC
-            //var tableMcq = "<td> <input type='hidden' id='tableMcq" + index + "'  name='Answers[" + index + "].Result' value='" + selectedItem.MCQ + "' /> " + selectedItem.OPT + " </td>";
-            //var tableAnswer1 = "<td> <input type='hidden' id='tableAnswer1" + index + "'  name='Answers[" + index + "].Answer1' value='" + selectedItem.Answer + "' /> " + selectedItem.Answer + " </td>";
-            //var tableDelete = "<td> <input type='button' id='tableDelete" + index + "' value='-' class='btn btn-danger btn-xs btnDelete' /></td>";
-            //var tableAOrder = "<td> <input type='hidden' id='tableAOrder" + index + "'  name='Answers[" + index + "].AOrder' value='" + selectedItem.Order + "' />  </td>";
-
-            ////Create Row
-            //var newRow = "<tr>" + indexTd + slTd + tableMcq + tableAnswer1 + tableDelete + tableAOrder + " </tr>";
-        }
+     
         $(this).closest('tr').remove();
     });
 

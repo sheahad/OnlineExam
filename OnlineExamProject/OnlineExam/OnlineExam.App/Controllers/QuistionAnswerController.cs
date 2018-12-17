@@ -34,6 +34,8 @@ namespace OnlineExam.App.Controllers
             model.ExamSelectListItems = _examManager.GetAll()
               .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Code }).ToList();
 
+            model.Questions = _questionManager.GetAll();
+
             return View(model);
         }
         [HttpPost]
@@ -51,7 +53,7 @@ namespace OnlineExam.App.Controllers
               .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Code }).ToList();
             try
             {
-                if (ModelState.IsValid && model.Answers != null && model.Answers.Count > 0)
+                if (ModelState.IsValid && model.Answers != null && model.Answers.Count() > 0)
                 {
                     var question = Mapper.Map<Question>(model);
 
