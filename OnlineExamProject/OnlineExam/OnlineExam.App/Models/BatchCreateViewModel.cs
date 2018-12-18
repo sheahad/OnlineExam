@@ -64,5 +64,10 @@ namespace OnlineExam.App.Models
         public List<SelectListItem> ParticipentListItem { get; set; }
         public List<SelectListItem> TrainerListItems { get; set; }
         public List<Trainer> TrainerList { get; set; }
+
+        public int ParticipantId { get; set; }
+
+        public List<AssignBatchParticipant> AssignBatchParticipants { get; set; }
+        
     }
 }

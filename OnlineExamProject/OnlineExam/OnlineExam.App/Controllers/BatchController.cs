@@ -48,8 +48,14 @@ namespace OnlineExam.App.Controllers
                  .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
             try
             {
-                var course = Mapper.Map<Course>(model);
-                bool isSaved = _courseManager.Add(course);
+                var batch = Mapper.Map<Batch>(model);
+
+                batch.AssignBatchParticipants.Add(
+                    new AssignBatchParticipant(){BatchId = model.BatchId, ParticipantId = model.ParticipantId,CreateById = model.CreateById, CreateDate = model.CreateDate, Status = model.Status });
+
+
+                bool isSaved = _batchManager.Add(batch);
+
 
                 if (isSaved)
                 {
