@@ -3,7 +3,7 @@ namespace OnlineExam.DatabaseContext.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class add : DbMigration
+    public partial class add_last : DbMigration
     {
         public override void Up()
         {
@@ -13,18 +13,14 @@ namespace OnlineExam.DatabaseContext.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         QuestionId = c.Int(nullable: false),
-                        Order = c.Int(nullable: false),
+                        AOrder = c.Int(nullable: false),
                         Answer1 = c.String(),
                         Result = c.Int(nullable: false),
                         Status = c.String(),
-                        CreateById = c.Int(nullable: false),
-                        CreateDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: false)
-                .ForeignKey("dbo.Users", t => t.CreateById, cascadeDelete: false)
-                .Index(t => t.QuestionId)
-                .Index(t => t.CreateById);
+                .Index(t => t.QuestionId);
             
             CreateTable(
                 "dbo.AttendAnswers",
@@ -410,7 +406,7 @@ namespace OnlineExam.DatabaseContext.Migrations
                         CourseId = c.Int(nullable: false),
                         ExamId = c.Int(nullable: false),
                         Mark = c.Double(nullable: false),
-                        Order = c.Int(nullable: false),
+                        QOrder = c.Int(nullable: false),
                         Question1 = c.String(),
                         QuestionType = c.String(),
                         Status = c.String(),
@@ -452,7 +448,6 @@ namespace OnlineExam.DatabaseContext.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Answers", "CreateById", "dbo.Users");
             DropForeignKey("dbo.AttendAnswers", "CreateById", "dbo.Users");
             DropForeignKey("dbo.AttendQuestions", "CreateById", "dbo.Users");
             DropForeignKey("dbo.AttendExams", "CreateById", "dbo.Users");
@@ -564,7 +559,6 @@ namespace OnlineExam.DatabaseContext.Migrations
             DropIndex("dbo.AttendAnswers", new[] { "CreateById" });
             DropIndex("dbo.AttendAnswers", new[] { "AnswerId" });
             DropIndex("dbo.AttendAnswers", new[] { "AttendQuestionId" });
-            DropIndex("dbo.Answers", new[] { "CreateById" });
             DropIndex("dbo.Answers", new[] { "QuestionId" });
             DropTable("dbo.ScheduleExams");
             DropTable("dbo.Questions");

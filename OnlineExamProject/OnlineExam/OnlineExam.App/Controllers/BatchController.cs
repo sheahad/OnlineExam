@@ -77,6 +77,8 @@ namespace OnlineExam.App.Controllers
             return View();
         }
 
+       
+
         public PartialViewResult GetAddBatchExamPV()
         {
             var model = new BatchCreateViewModel();

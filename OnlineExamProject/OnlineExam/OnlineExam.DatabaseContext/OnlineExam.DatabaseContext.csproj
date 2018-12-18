@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\OnlineExamDbContext.cs" />
-    <Compile Include="Migrations\201812140431196_add.cs" />
-    <Compile Include="Migrations\201812140431196_add.Designer.cs">
-      <DependentUpon>201812140431196_add.cs</DependentUpon>
+    <Compile Include="Migrations\201812180405087_add_last.cs" />
+    <Compile Include="Migrations\201812180405087_add_last.Designer.cs">
+      <DependentUpon>201812180405087_add_last.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,8 +65,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812140431196_add.resx">
-      <DependentUpon>201812140431196_add.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812180405087_add_last.resx">
+      <DependentUpon>201812180405087_add_last.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
