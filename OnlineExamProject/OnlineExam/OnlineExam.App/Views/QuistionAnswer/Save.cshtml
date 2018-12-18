@@ -1,124 +1,237 @@
-﻿@using System.Xml
+﻿@using System.Activities.Expressions
 @model OnlineExam.App.Models.QuestionAnswerCreateViewModel
 @{
     ViewBag.Title = "Create Quistion Answer";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section styles{
+}
 <!DOCTYPE html>
 
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create Quistion Answer</title>
-
-
 </head>
 
-
-
 <body>
-    @if (ViewBag.SMsg != null)
-    {
-        <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+    <h3 style="text-align:center ; color: blue"> Quistion and Answer Entry</h3>
 
-    }
-    @if (ViewBag.EMsg != null)
-    {
-        <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
-
-    }
+<div>
     <div>
-        @using (Html.BeginForm())
+        @if (ViewBag.SMsg != null)
         {
-            <div class="container">
-                <div class="col-md-12">
-                    <br />
-                    <h6>Create Quistion Answer</h6>
-                    <br />
-                </div>
+            <h5 style="color: green; font-weight: bold; text-align:center">@ViewBag.SMsg </h5>
+        }
 
-
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        <div class="form-group row">
-                            @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, "...Select...", new { @class = "form-control", })
-                                @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            @Html.LabelFor(c => c.CourseId, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, "...Select...", new { @class = "form-control", })
-                                @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            @Html.LabelFor(c => c.ExamId, htmlAttributes: new { @class = "control-label col-md-4" })
-                            <div class="col-md-6">
-                                @Html.DropDownListFor(c => c.ExamId, Model.ExamSelectListItems, "...Select...", new { @class = "form-control", })
-                                @Html.ValidationMessageFor(c => c.ExamId, null, new { @class = "text-danger" })
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-2">Question:</div>
-
-                            @Html.LabelFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-1" })
-
-
-                            @Html.TextBoxFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-3" })
-
-
-                            @Html.LabelFor(c => c.Order, htmlAttributes: new { @class = "control-label col-md-1" })
-
-
-                            @Html.TextBoxFor(c => c.Order, htmlAttributes: new { @class = "control-label col-md-3" })
-
-
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                @Html.TextAreaFor(c => c.Question, new { @class = "form-control", @rows = "3" })
-                                @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            
-                            <label>Option Type</label>
-                            <div class="col-md-6">
-                                <select id="questionTypeSelect" >
-                                    <option value="0">...Select...</option>
-                                    <option value="1">MCQ Single Answer(s)</option>
-                                    <option value="2">MCQ Multiple Answer(s)</option>
-                                </select>
-                            </div>
-                            
-                        </div>
-
-                        <div class="form-group solid" id="answerDiv">
-                            <div>
-                                <label name="" class="col-md-5">Answer Option:</label>
-
-                            </div>
-                            <div>
-                                <input type="text" id="" name="" class="col-md-1                                                                                                                                                                                                                                    ">
-                                <span id="mcqDiv" class="col-md-1"></span>
-                                <input type="text" id="" name="" class="col-md-8">
-                                <button type="submit" name="Add" class="btn btn-xs col-md-1   fa fa-plus"></button>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-md-6"></div>
-                    </div>
-            </div>
+        @if (ViewBag.EMsg != null)
+        {
+            <h5 style="color: red; font-weight: bold; text-align: center">@ViewBag.EMsg </h5>
         }
     </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="container">
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <div class="panel-group panel-primary">
+                        <div class="panel-heading">
+                            @*<h4 style="text-align: center"> Quistion Entry</h4>*@
+                        </div>
+                        <div class="panel-body">
+                            @*Quistion Entry*@
+                            <div class="col-md-12">
+                                <div class="panel-group panel-primary">
+                                    <div class="panel-heading">
+                                        <h4 style="text-align: center"> Quistions</h4>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="form-group row">
+                                            @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8">
+                                                @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, "...Select...", new { @class = "form-control btn btn-md", })
+                                                @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            @Html.LabelFor(c => c.CourseId, htmlAttributes: new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8">
+                                                @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, "...Select...", new { @class = "form-control btn btn-md", })
+                                                @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            @Html.LabelFor(c => c.ExamId, htmlAttributes: new { @class = "control-label col-md-4" })
+                                            <div class="col-md-8">
+                                                @Html.DropDownListFor(c => c.ExamId, Model.ExamSelectListItems, "...Select...", new { @class = "form-control btn btn-md", })
+                                                @Html.ValidationMessageFor(c => c.ExamId, null, new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-md-12">
+                                            <div class="col-md-12">Question:</div>
+                                            @Html.LabelFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            @Html.TextBoxFor(c => c.Mark, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            @Html.LabelFor(c => c.QOrder, htmlAttributes: new { @class = "control-label col-md-3" })
+                                            @Html.TextBoxFor(c => c.QOrder, htmlAttributes: new { @class = "control-label col-md-3 bg-light text-dark", @readonly = "readonly" })
+                                        </div>
+                                        <div class="form-group row" >
+                                            <div class="col-md-12">
+                                                @Html.TextAreaFor(c => c.Question1, new {@class = "form-control", @rows = "3"})
+                                                @*@Html.ValidationMessageFor(c => c.Mark, null, new { @class = "text-danger" })*@
+                                            </div>
+                                        </div>
+                                        @{
+
+                                            var MyList = new List<SelectListItem>(){
+                                                new SelectListItem(){Value="0",Text="...Select..."},
+                                                new SelectListItem(){Value="1",Text="MCQ Single Answer(s)"},
+                                                new SelectListItem(){Value="2",Text="MCQ Multiple Answer(s)"}
+
+                                            };
+                                        }
+                                            
+                                        <div class="form-group row col-md-12">
+                                            @Html.Label("Option Type", new{@class="col-md-4"})
+                                            <div class="col-md-8">
+                                                @Html.DropDownList("QuestionType", MyList, new { @class = "btn btn-md "})
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            @*Add Answer*@
+                            <div class="col-md-12">
+                                <div class="panel-group panel-primary" id="answerDiv">
+                                    <div class="panel-heading">
+                                        <h5 style="text-align:left"> Add Option</h5>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="form-group solid" id="answerDiv">
+                                            <div>
+                                                <input type="text" id="tableAOrder" name="tableAOrder" class="col-md-1" />
+                                                <input type="checkbox" id="chkMcq" name="tableMcq" value="true" class="col-md-1">
+                                                <input type="radio" id="rdoMcq" name="tableMcq" value="true" class="col-md-1">
+                                                <input type="text" id="tableAnswer1" name="tableAnswer1" class="col-md-8">
+                                                <input type="button" class="btn btn-xs col-md-1   fa fa-plus" id="AddButton" value="+" />
+                                            </div>
+                                            @*MasterDelails*@
+                                            <div id="delailsDiv">
+                                                @*Answer*@
+                                                <div class="col-md-12">
+                                                    <div class="panel-group panel-primary">
+                                                        <div class="panel-heading">
+                                                            @*<h4 style="text-align: center"> Quistions</h4>*@
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <table class=" table table-bordered table-hover table-striped table-responsive">
+                                                                <thead>
+                                                                    <tr style="background-color:lightblue; color: black; font-weight: bold">
+                                                                        <td >Sl</td>
+                                                                        <td ></td>
+                                                                        <td class="col-4">Options</td>
+                                                                        <td class="col-2">Action</td>
+                                                                        <td></td>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="AnswersTable">
+
+                                                                    @*@if (Model != null && Model.Answers != null && Model.Answers.Count > 0)
+                                                                    {
+                                                                        var sl = 0;
+                                                                        foreach (var ans in Model.Answers)
+                                                                        {
+                                                                            <tr>
+                                                                                <td>@(++sl)</td>
+                                                                                <td>@ans.Result</td>
+                                                                                <td>@ans.Answer1</td>
+                                                                                <td>Remove</td>
+                                                                            </tr>
+                                                                        }
+                                                                    }*@
+                                                                </tbody>
+
+                                                            </table>
+
+
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            
+                            
+                        </div>
+                        @*Submit*@
+                        <div class="col-md-4 col-md-offset-4">
+                            <input type="submit" id="submit" class="btn btn-success" value="Save" />
+                        </div>
+                    </div>
+                </div>
+                @*/////////////////////////////////////////////////////////////////////////////*@
+                <div class="col-md-6">
+                    <div class="panel-group panel-primary">
+                        <div class="panel-heading">
+                            <h4 style="text-align: center"> Quistions</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table class=" table table-bordered table-hover table-striped table-responsive">
+                                <thead>
+                                    <tr style="background-color:lightblue; color: black; font-weight: bold">
+                                        <th >Order</th>
+                                        <th class="col-4">Quistion</th>
+                                        <th class="col-2">Option Type</th>
+                                        <th class="col-2">Options</th>
+                                        <th class="col-2">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="qsn">
+                                    @*@if (Model != null && Model.Questions != null && Model.Questions.Count() > 0)
+                                    {
+
+                                        foreach (var qsn in Model.Questions)
+                                        {
+                                            <tr id="qsn">
+                                                <td>@qsn.QOrder</td>
+                        <td class="col-3">@qsn.Question1</td>
+                        <td class="col-2">@qsn.QuestionType</td>
+                        <td class="col-1">@qsn.Answers.Select(c=>c.Answer1).Count()</td>
+                        <td class="col-4">
+                            <input type="button" name="viewRow" value="View" class="btn btn-success btn-xs" />
+                            <input type="button" name="editRow" value="Edit" class="btn btn-block btn-xs" />
+                            <input type="button" name="deleteRow" value="Delete" class="btn btn-danger btn-xs" />
+                        </td>
+                                            </tr>
+                                        }
+                                    }*@
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+</div>
+
 </body>
 </html>
 @section scripts{
-<script src="~/Scripts/Project/QuistionAnswer/QuistionAnswer.js"></script>
+    <script src="~/Scripts/Project/QuistionAnswer/QuistionAnswer.js"></script>
 }
