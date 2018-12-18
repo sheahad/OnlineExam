@@ -34,7 +34,36 @@ namespace OnlineExam.App.Models
         public string Tag { get; set; }
         public string TagId { get; set; }
 
+        
         public string TrainerId { get; set; }
+
+        public string BatchId { get; set; }
+
+        public string CourseId { get; set; }
+
+        public string Lead { get; set; }
+
+        public string TrainerName { get; set; }
+
+        public string ConatactNo { get; set; }
+        public string Email { get; set; }
+
+        public string AddressLine1 { get; set; }
+
+        public string AddressLine2 { get; set; }
+        public int CityId { get; set; }
+        public int PostalCode { get; set; }
+
+        public int CountryId { get; set; }
+        public string Image { get; set; }
+
+        [Display(Name = "Exam Type")]
+        public string ExamType { get; set; }
+        public string ExamCode { get; set; }
+        public string Topic { get; set; }
+        [Display(Name = "Full Mark")]
+        public int FullMark { get; set; }
+        public Nullable<System.TimeSpan> Duration { get; set; }
 
         public List<SelectListItem> Tags { get; set; }
 
@@ -43,5 +72,11 @@ namespace OnlineExam.App.Models
 
         public List<Trainer> TrainerSelectListItems { get; set; }
         public List<SelectListItem> TrainerListItems { get; set; }
+
+        public List<SelectListItem> BatchSelectListItems { get; set; }
+        public List<SelectListItem> CityListItemList { get; set; }
+        public List<SelectListItem> CountryListItem { get; set; }
+        public List<SelectListItem> CourseSelectListItems { get; set; }
+        public List<SelectListItem> ExamTypeListItems { get; set; }
     }
 }

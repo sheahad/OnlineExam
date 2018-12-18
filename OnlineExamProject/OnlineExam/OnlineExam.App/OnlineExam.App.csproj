@@ -110,6 +110,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Project\Batch\BatchCreateView.js" />
     <Content Include="Scripts\Project\Course\Course.js" />
     <Content Include="Scripts\Project\Course\CourseCreate.js" />
     <Content Include="Scripts\Project\Course\CourseView.js" />
@@ -264,6 +265,14 @@
     <Content Include="Views\Participants\Save.cshtml" />
     <Content Include="Views\Participants\Search.cshtml" />
     <Content Include="Views\Participants\View.cshtml" />
+    <Content Include="Views\Shared\Course\_AddTrainerCousePv.cshtml" />
+    <Content Include="Views\Shared\Course\_AddCourseExamPV.cshtml" />
+    <Content Include="Views\Shared\Batch\_AddParticipentCreatePV.cshtml" />
+    <Content Include="Views\Batch\BatchView.cshtml" />
+    <Content Include="Views\Shared\Batch\_AddBasicBatchInfo.cshtml" />
+    <Content Include="Views\Shared\Batch\_ParticipentLoad.cshtml" />
+    <Content Include="Views\Shared\Batch\_AssignTrainerLoadPv.cshtml" />
+    <Content Include="Views\Shared\Batch\_AddCourseTrainer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

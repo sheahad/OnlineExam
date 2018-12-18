@@ -1,0 +1,64 @@
+﻿
+@model OnlineExam.App.Models.BatchCreateViewModel
+
+
+@if (ViewBag.SMsg != null)
+{
+    <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+}
+@if (ViewBag.EMsg != null)
+{
+    <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+}
+<body>
+@*@using (Ajax.BeginForm("Save","Trainer", new AjaxOptions()
+        {
+            HttpMethod = "POST",
+            OnSuccess = "getTrainerCreateSuccess",
+            OnFailure = "getTrainerCreatePv"
+
+        }))*@
+@using (Html.BeginForm())
+{
+        <div class="col-md-9">
+            <div>
+
+                <div class="form-horizontal">
+
+                    <div class="col-md-12">
+                        <div class="form-group form-row">
+
+                            @Html.LabelFor(c => c.CourseTrainer, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(c => c.CourseTrainer, Model.TrainerListItems, "--Select--", new { @class = "form-control col-md-8" })
+                                <button type="button" name="Add" class="btn btn-xs col-md-1   fa fa-plus" id="AddCourseTrainer"></button>
+
+                                @Html.ValidationMessageFor(c => c.CourseTrainer, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        @*<div class="form-group form-row">
+
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-success" />
+
+
+                                </div>
+
+                            </div>*@
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    }
+
+
+</body>

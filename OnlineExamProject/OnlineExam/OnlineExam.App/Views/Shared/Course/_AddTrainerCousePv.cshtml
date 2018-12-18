@@ -1,0 +1,143 @@
+﻿@model OnlineExam.App.Models.CourseCreateViewModel
+
+
+
+@if (ViewBag.SMsg != null)
+{
+    <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+}
+@if (ViewBag.EMsg != null)
+{
+    <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+}
+<body>
+    @using (Html.BeginForm())
+    {
+
+        
+            <div class="row ">
+                <div class="col-md-9 ">
+                    <div>
+                        <div class="col-md-12">
+                            <h6>Create Trainer</h6>
+
+                        </div>
+                        <br/>
+
+
+                        <div class="form-horizontal">
+
+
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, "--Select--", new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group form-row">
+                                <h7 class="control-label col-md-2">Batch</h7>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.BatchId, Model.BatchSelectListItems, "--Select--", new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.Id, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <h7 class="control-label col-md-2">Course</h7>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.CourseId, Model.CourseSelectListItems, "--Select--", new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.Id, null, new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                          
+
+
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.TrainerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.TrainerName, null, new { @class = "form-control", placeholder = "Name" })
+                                    @Html.ValidationMessageFor(c => c.TrainerName, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.ConatactNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.ConatactNo, null, new { @class = "form-control", placeholder = "Conatact No" })
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.Email, null, new { @class = "form-control", placeholder = "Email" })
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.AddressLine1, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.AddressLine1, null, new { @class = "form-control ", placeholder = "AddressLine 1 " })
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.AddressLine2, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.AddressLine2, htmlAttributes: new { @class = "form-control", placeholder = "AddressLine 2" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <h7 class="control-label col-md-2">City</h7>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.CityId, Model.CityListItemList, "--Select--", new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.CityId, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(c => c.PostalCode, htmlAttributes: new { @class = "form-control", placeholder = "Postal Code" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                <h7 class="control-label col-md-2">Country</h7>
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(c => c.CountryId, Model.CountryListItem, "--Select--", new { @class = "form-control", })
+                                    @Html.ValidationMessageFor(c => c.CountryId, null, new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group form-row">
+                                @Html.LabelFor(c => c.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control" name="Image">
+                                </div>
+                            </div>
+                            <div class="form-group form-row">
+                                <div class="col-md-6"></div>
+                                <div class=" col-md-2 ">
+                                    <input type="submit" value="Update" class="btn btn-success float-right" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+            </div>
+        
+
+
+
+
+
+    }
+
+
+</body>
+

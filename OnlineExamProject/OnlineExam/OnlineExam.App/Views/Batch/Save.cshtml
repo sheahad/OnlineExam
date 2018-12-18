@@ -1,5 +1,12 @@
-﻿@{
+﻿@model OnlineExam.App.Models.BatchCreateViewModel
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 }
 
 <!DOCTYPE html>
@@ -7,11 +14,95 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>Course Entry </title>
+
+    @if (ViewBag.SMsg != null)
+    {
+        <h3 style="color: green; font-weight: bold">@ViewBag.SMsg </h3>
+
+    }
+    @if (ViewBag.EMsg != null)
+    {
+        <h3 style="color: red; font-weight: bold">@ViewBag.EMsg </h3>
+
+    }
+
+
+
 </head>
+
 <body>
-    <div>
-    
-    </div>
+    @using (Html.BeginForm())
+{
+        <div class="col-md-9">
+                <div class="form-horizontal">
+
+                    <br/>
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.OrganizationId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(c => c.OrganizationId, Model.OrganizationSelectListItems, "--Select--", new { @class = "form-control ", })
+                                @Html.ValidationMessageFor(c => c.OrganizationId, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.CourseId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-8">
+                                @Html.DropDownListFor(c => c.CourseId, Model.OrganizationSelectListItems, "--Select--", new { @class = "form-control ", })
+                                @Html.ValidationMessageFor(c => c.CourseId, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.BatchNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(c => c.BatchNo, null, new { @class = "form-control", placeholder = "Name" })
+                                @Html.ValidationMessageFor(c => c.BatchNo, null, new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-8">
+                                @Html.TextBoxFor(c => c.Description, null, new { @class = "form-control", placeholder = "Code" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(c => c.StartDate, null, new { @class = "form-control", placeholder = "Course Duration" })
+                                @Html.ValidationMessageFor(c => c.StartDate, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+                            @Html.LabelFor(c => c.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(c => c.EndDate, null, new { @class = "form-control", placeholder = "Credit Hour" })
+                            </div>
+                        </div>
+
+                        <div class="form-group form-row">
+
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-success" />
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+}
+
+
 </body>
 </html>

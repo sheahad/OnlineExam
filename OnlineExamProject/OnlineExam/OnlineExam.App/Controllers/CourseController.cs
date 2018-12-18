@@ -15,6 +15,11 @@ namespace OnlineExam.App.Controllers
         CoursManager _courseManager = new CoursManager();
         OrganizationManager _organizationManager=new OrganizationManager();
         TrainerManager _trainerManager=new TrainerManager();
+        BatchManager _batchManager=new BatchManager();
+        CoursManager _coursManager=new CoursManager();
+        CityManager _cityManager=new CityManager();
+        CountryManager _countryManager=new CountryManager();
+        ExamManager _examManager=new ExamManager();
 
         TagManager _tagManager=new TagManager();
         public string message="";
@@ -122,5 +127,42 @@ namespace OnlineExam.App.Controllers
             return PartialView("~/Views/Shared/Course/_TrainerCreatePv.cshtml", model);
         }
 
+        public PartialViewResult GetAddCourseTrainerPV()
+        {
+            var model = new CourseCreateViewModel();
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.BatchSelectListItems = _batchManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.BatchNo }).ToList();
+
+            model.CourseSelectListItems = _coursManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Code }).ToList();
+
+            model.CityListItemList = _cityManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.CountryListItem = _countryManager.GetAll()
+         .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            return PartialView("~/Views/Shared/Course/_AddTrainerCousePv.cshtml", model);
+
+        }
+
+        public PartialViewResult GetAddCourseExamPV()
+        {
+            var model = new CourseCreateViewModel();
+
+            model.OrganizationSelectListItems = _organizationManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Name }).ToList();
+
+            model.CourseSelectListItems = _coursManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.Code }).ToList();
+
+            model.ExamTypeListItems = _examManager.GetAll()
+                .Select(c => new SelectListItem() { Value = c.Id.ToString(), Text = c.ExamType }).ToList();
+            
+            return PartialView("~/Views/Shared/Course/_AddCourseExamPV.cshtml", model);
+        }
 	}
 }

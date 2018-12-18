@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "BatchView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<button type="button" class="btn btn-info" id="BatchCreateButton"> Basic Info</button>
+<button type="button" class="btn btn-info" id="ParticipentCreateButton"> Assign Participent</button>
+<button type="button" class="btn btn-info" id="TrainerCreateButton"> Assign Trainer </button>
+<button type="button" class="btn btn-info" id="CourseExamButton"> Schedule Exams</button>
+
+
+
+<div>
+
+    <div id="PartialBatchLoadDiv"></div>
+</div>
+
+
+
+
+@section Scripts{
+
+    <script src="~/Scripts/Project/Batch/BatchCreateView.js"></script>
+}
